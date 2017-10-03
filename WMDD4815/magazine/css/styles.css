@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/*========================GENERAL RULES===============================*/
+
+body,
+html {
+	height: 100%;
+	margin: 0;
+	font-family: 'Montserrat', serif;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+/*========================PARALLAX===============================*/
+
+.parallax {
+	/* The image used */
+	background-image: url("../images/bcg-mountains.jpg");
+	/* Set a specific height */
+	height: 100%;
+	min-height: 20%;
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.logo {
+	width: 100%;
+	/*padding-left: 5%;*/
+	padding: 2rem 0;
+	/*background-color: rgba(255, 255, 255, .6);*/
+}
+
+
+/*========================HEADER===============================*/
+
+header {
+	position: relative;
+}
+
+header div img {
+	width: 25%;
+	display: block;
+	margin: auto;
+	margin-bottom: 1rem;
+	height: auto;
+}
+
+header a:hover {
+	background-color: white;
+	color: black;
+}
+
+header li {
+	float: left;
+	width: 25%;
+}
+
+header a {
+	padding: .75rem 0;
+	letter-spacing: 2px;
+	font-size: 1.5rem;
+}
+
+
+/*========================SHARED===============================*/
+
+header ul,
+footer ul {
+	list-style-type: none;
+	padding-left: 0;
+	width: 100%;
+}
+
+header li {
+	text-align: center;
+	background-color: #022356;
+}
+
+header a,
+footer a {
+	text-decoration: none;
+	text-transform: uppercase;
+	display: block;
+	color: white;
+}
+
+
+/*========================FOOTER===============================*/
+
+footer {
+	margin-top: 2rem;
+}
+
+.footertotal {
+	background-color: #022356;
+	width: 100%;
+	/*position: relative;*/
+}
+
+.footertotal p {
+	margin: 0;
+	margin: 1rem 0 1rem 0;
+}
+
+.footerleft,
+.footermiddle,
+.footerright {
+	width: 29.3333%;
+	float: left;
+	padding: 0 2%;
+}
+
+.footerright {
+	/*float: right;*/
+	text-align: center;
+	color: white;
+}
+
+.footermiddle,
+.footerright {
+	margin: auto;
+	padding: 3rem 0 3rem 0;
+}
+
+.footerleft li,
+.footermiddle li {
+	font-size: .75rem;
+	padding: 1rem 0 1rem 4rem;
+}
+
+.socialmedia {
+	font-size: 2rem;
+	text-align: center;
+	color: white;
+}
+
+.socialmedia a {
+	display: inline-block;
+	padding: 0 .5rem;
+}
+
+
+/*========================INPUT===============================*/
+
+input,
+textarea {
+	display: block;
+	margin: auto;
+	box-sizing: border-box;
+	border: 0;
+	/*border: 2px solid #ccc;*/
+	border-radius: 4px;
+	background-color: white;
+	padding: .75rem .75rem;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+	font-size: 1rem;
+}
+
+form input,
+textarea,
+form button {
+	border: 1px solid #022356;
+	width: 100%;
+	margin: 0 auto;
+	margin-bottom: 2rem;
+}
+
+form {
+	padding-top: 2rem;
+}
+
+textarea {
+	min-height: 10rem;
+}
+
+.center {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+}
+
+label {
+	/*margin: 0 auto;*/
+	margin-top: 1rem;
+	/*text-align: left !important;*/
+}
+
+input[type=search] {
+	width: 25%;
+}
+
+button {
+	margin: 1rem 0;
+	border-radius: 4px;
+	border: none;
+	/*background-color: #025635;*/
+	background-color: #ffbf15;
+	color: white;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+footer input,
+footer button {
+	width: 50%;
+	font-size: 1rem;
+}
+
+input[type=search]:focus {
+	width: 75%;
+}
+
+.wborder {
+	border: 2px solid #ccc;
+}
+
+.getlost {
+	position: relative;
+}
+
+.getlost input {
+	position: absolute;
+	left: 12.5%;
+	top: 25%;
+	width: 75%
+}
+
+
+/*========================MAIN CONTENT===============================*/
+
+main {
+	width: 70%;
+	margin: auto;
+}
+
+h2 {
+	/*color: #563502;*/
+	/*color: #235602;*/
+	color: #235602;
+	/*padding-top: 1rem;	*/
+	padding: 1rem 0 0 .5rem;
+	margin-bottom: 0;
+	font-size: 2rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+h3 {
+	padding-top: 1rem;
+	padding-bottom: 0;
+}
+
+.bigwarning {
+	text-align: center;
+	font-size: 2rem;
+}
+
+.wrapper {
+	border-top: 4px solid #235602;
+	padding-top: .5rem;
+	/*border: 1px solid black;*/
+}
+
+.textwrapper {
+	max-width: 1000px;
+	/*width: 70%;*/
+	margin: 0 auto;
+}
+
+.darkerbgc {
+	background-color: rgba(0, 0, 0, .07);
+}
+
+
+/*========================FEATURE===============================*/
+
+.featuredBig {
+	float: left;
+	width: 49%;
+	padding: 0 .5%;
+}
+
+
+/*.featuredSmall {
+	float: right;
+	width: 49.5%;
+	height: 5%;
+}*/
+
+figure {
+	position: relative;
+	left: 0;
+	top: 0;
+	margin: 0;
+}
+
+figcaption {
+	position: absolute;
+	left: 0;
+	bottom: .25rem;
+	background-color: rgba(255, 255, 255, 0.75);
+	/*background-color: white;*/
+	padding: 4%;
+	/*width: 100%;*/
+	box-sizing: border-box;
+	color: black;
+	font-weight: bold;
+}
+
+
+/*===============================NEWS===============================*/
+
+.news {
+	float: left;
+	width: 24%;
+	padding: 0 .5%;
+	/*	border-right: 1px solid white;
+	box-sizing: border-box;*/
+}
+
+
+/*.news:last-of-type {
+	padding-right: 0;
+}*/
+
+.news .newstitle {
+	font-weight: bold;
+	color: black;
+	font-size: 1.2rem;
+}
+
+.news a {
+	text-decoration: none;
+	color: black;
+}
+
+.newsdesc {
+	font-size: .5rem;
+	/*color: darkgrey;*/
+}
+
+.newsdesc .author {
+	text-align: left;
+	display: inline-block;
+}
+
+.newsdesc .date {
+	text-align: right;
+}
+
+.news p {
+	margin: 0;
+	padding-bottom: .5rem;
+	text-align: center;
+}
+
+
+/*===============================REVIEWS===============================*/
+
+.reviews {
+	float: left;
+	width: 32.333%;
+	padding: 0 .5%;
+}
+
+
+/*===============================CLEARFIX===============================*/
+
+.cf:before,
+.cf:after {
+	content: " ";
+	/* 1 */
+	display: table;
+	/* 2 */
+}
+
+.cf:after {
+	clear: both;
+}
+
+
+/*===============================VIEWPORT===============================*/
+
+@media screen and (max-width: 1000px) {
+	main {
+		width: 95%;
+	}
+	HTML {
+		font-size: 14px;
+	}
+	.parallax {
+		background-size: initial;
+		background-attachment: initial;
+		/*height: 60%;*/
+	}
+	header li {
+		box-sizing: border-box;
+	}
+	/*
+	header li:first-child {
+		border-bottom: 1px solid white;
+		border-right: 1px solid white 
+	}
+
+	header li:last-child {
+		border-top: 1px solid white;
+		border-left: 1px solid white 
+	}*/
+	input {
+		width: 50%;
+	}
+	.reviews {
+		width: 100%;
+	}
+	.news {
+		width: 49%;
+	}
+	.featuredBig,
+	.featuredSmall {
+		width: 100%;
+	}
+	.footerleft,
+	.footermiddle,
+	.footerright {
+		width: 100%;
+		padding: 0;
+	}
+	.footermiddle p {
+		margin-top: 0;
+	}
+	.footerleft {
+		text-align: center;
+		padding: 0;
+	}
+	.footerleft li {
+		padding: 0;
+		padding-bottom: .5rem;
+	}
+	header li {
+		float: left;
+		width: 50%;
+	}
+}

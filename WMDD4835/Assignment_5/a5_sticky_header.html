@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sticky Header</title>
+
+	<link rel="stylesheet" href="a5_style.css">
+
+	<!-- FONT AWESOME -->
+	<script src="https://use.fontawesome.com/5efdd712fd.js"></script>
+
+	<!-- PASTE JQUERY LINK HERE -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	// Your jQuery Code here
+		$(document).ready(function(){
+			// makes the menu stick to the top when user scrolls the page
+			$(window).on("scroll", function() {
+				if ($(window).scrollTop() > 200) {
+					$("header").addClass("sticky")
+				} else {
+					$("header").removeClass("sticky")
+				}
+			});
+			// makes the search menu toggle when user clicks in the magn glass or X icon
+			$("a[class*='search-']").on("click", function() {
+				$("form").fadeToggle()
+				$("input").focus()
+			});
+		});
+	</script>
+
+	
+
+</head>
+<body>
+
+	<header>
+		<h1>Title of the Page</h1>
+
+		<nav>
+			<ul class=menu>
+				<li><a href="">Cows</a></li>
+				<li><a href="">Whales</a></li>
+				<li><a href="">Bees</a></li>
+				<li><a href="">Chickens</a></li>
+				<li><a href="">Pineapples</a></li>
+			</ul>
+
+				<form method="post" action="http://webdevbasics.net/scripts/demo.php">
+				
+					<label for="search-bar">Search</label>
+					<input id="search-bar" type="search" name="search" placeholder="search">
+				
+					<button type="submit">
+						<span class="fa fa-search" aria-hidden="true"></span>
+					</button>
+						
+					<!-- Closes the search screen -->
+					<a href="#" class="search-close">x</a>
+
+				</form>
+
+				<!-- Displays the search screen -->
+				<a class="fa fa-search search-expand" href="#"></a>
+			
+		</nav>
+
+	</header>
+
+	<main>
+		
+		<article>
+			
+			<h2>Article Title</h2>
+
+			<section>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			</section>
+
+			<section>
+				<h3>Section Title</h3>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			</section>
+
+			<section>
+				<h3>Section Title</h3>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			</section>
+
+		</article>
+
+		<aside>
+		
+			<h2>Information</h2>
+
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+
+		</aside>
+
+	</main>
+
+<footer>
+	
+
+</footer>
+
+
+</body>
+</html>

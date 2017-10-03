@@ -1,0 +1,39 @@
+*
+{
+	box-sizing:border-box;
+}
+
+body
+{
+	margin:0;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+main
+{
+	max-width: 900px;
+	margin:auto;
+	margin-top: 4rem;
+
+	font-size: 1.2rem;
+
+	font-family: georgia;
+
+	line-height: 1.7;
+
+}
+
+main article img
+{
+	width:100%;
+	position: relative;
+	
+}
+
+.strawberries {
+	background-color: pink;
+}

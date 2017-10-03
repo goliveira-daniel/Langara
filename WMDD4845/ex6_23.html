@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>EX6_23</title>
+	<script>
+		let firNum = parseInt(window.prompt("Enter a number"))
+		let secNum = parseInt(window.prompt("Enter another number"))
+		let thiNum = parseInt(window.prompt("Enter yet another number"))
+		let positive = 0
+		let negative = 0
+		let zeroes = 0
+		if (firNum == 0) {zeroes++} else if (firNum < 0) {negative++} else {positive++}
+		if (secNum == 0) {zeroes++} else if (secNum < 0) {negative++} else {positive++}
+		if (thiNum == 0) {zeroes++} else if (thiNum < 0) {negative++} else {positive++}
+		document.writeln("<p>Total of positive numbers entered is " + positive + "</p>")
+		document.writeln("<p>Total of negative numbers entered is " + negative + "</p>")
+		document.writeln("<p>Total of zero inputs is " + zeroes + "</p>")
+	</script>
+</head>
+<body></body>
+</html>

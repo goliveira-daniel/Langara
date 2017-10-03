@@ -1,0 +1,8 @@
+https://www.instagram.com/oauth/authorize/?client_id=ee26814cef394e359f9b2f1fb35a14cc&redirect_uri=http://greeboxbr.site/oauth&response_type=code
+http://greeboxbr.site/oauth?code=e79098e641a54c98839469d8c1597319
+
+
+
+https://www.instagram.com/oauth/authorize/?client_id=ee26814cef394e359f9b2f1fb35a14cc&scope=public_content&redirect_uri=http://greeboxbr.site/oauth&response_type=token
+http://greeboxbr.site/oauth#access_token=229774133.ee26814.d9279c18526f4a578198a7501a4f98e3
+http://greeboxbr.site/oauth#access_token=229774133.ee26814.d9279c18526f4a578198a7501a4f98e3

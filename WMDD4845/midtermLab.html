@@ -1,0 +1,98 @@
+<html>
+  <head>
+      <meta charset = "utf-8">
+      <title>midtermLab</title>
+      <script>
+        function start()
+        {
+          // let form = createNode("form"),
+          //     questionP = createNode("p"),
+          //     p = createNode("p"),
+          //     label = createNode("label"),
+          //     answerField = createNode("input"),
+          //     checkAnswerBtn = createNode("input"),
+          //     newQuestionBtn = createNode("input"),
+          //     resultP =createNode("p");
+
+          //   append(label, answerField);
+          //   append(p, label);
+          //   append(p, checkAnswerBtn);
+          //   append(p, newQuestionBtn);
+          //   append(form, questionP)
+          //   append(form, p)
+
+          //   answerField.setAttribute("type", "number");
+          //   checkAnswerBtn.setAttribute("type", "button");
+          //   newQuestionBtn.setAttribute("type", "button");
+            var questionP = document.getElementById( "question1" );
+            questionP.innerHTML = "How much is " + randomNum1 + " times " + randomNum2 + "?";
+            
+            var newQuestionBtn = document.getElementById( "newQuestionBtn" );
+            newQuestionBtn.addEventListener( "click", newQuestion, false );
+
+            var checkAnswerBtn = document.getElementById( "checkAnswerBtn" );
+            checkAnswerBtn.addEventListener( "click", displaycheckAnswer, false );
+
+        } // end function start
+
+        function newQuestion() {
+          // if checkAnswer(randomNum1, randomNum2, answer)
+          var result = document.getElementById( "result" );
+          var answer = document.getElementById( "answerField" );
+          if (checkAnswer(randomNum1,randomNum2, answer.value) == "Very good!") {
+            var questionP = document.getElementById( "question1" );
+            questionP.innerHTML = newQuestionText()
+            result.innerHTML = ""
+            answer.value = "" } else {
+              result.innerHTML = "You must get the right result before generating a new question"
+          }
+        }
+
+        function displaycheckAnswer()
+        {
+            var answer = document.getElementById( "answerField" );
+            var result = document.getElementById( "result" );
+            result.innerHTML = checkAnswer( randomNum1, randomNum2, answer.value );
+        }
+
+        function checkAnswer( num1, num2, answer )
+        {
+            return (num1 * num2 == answer ? "Very good!" : "No. Please try again.");
+        }
+
+        function generateRandom() {
+          return Math.floor(Math.random() * 10);
+        }
+
+        function newQuestionText() {
+          randomNum1 = generateRandom();
+          randomNum2 = generateRandom();
+          return "How much is " + randomNum1 + " times " + randomNum2 + "?";
+        }
+
+        // function createNode(element) {
+        // 	return document.createElement(element);
+        // }
+
+        // function append(parent, el) {
+        //   return parent.appendChild(el);
+        // }
+        var questionP = document.getElementById( "question1" );
+        var randomNum1 = 0,
+            randomNum2 = 0;
+        window.addEventListener( "load", start, false );
+      </script>
+  </head>
+  <body>
+      <form action = "#">
+        <p id="question1"></p>
+        <p>
+            <label>Enter your answer:
+            <input id = "answerField" type = "number"></label>
+            <input id = "checkAnswerBtn" type = "button"  value = "Check answer">
+            <input id = "newQuestionBtn" type = "button"  value = "New question">
+        </p>
+      </form>
+      <p id = "result"></p>
+  </body>
+</html>

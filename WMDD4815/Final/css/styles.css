@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Condensed:400,700');
+/*====================GENERAL RULES==========================*/
+body, html {
+    height: 100%;
+    margin: 0;
+	font-family: 'Cabin Condensed', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/*===============================CLEARFIX===============================*/
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+/*====================HEADER AND FOOTER========================*/
+h1 {
+	float: left;
+	color: black;
+	margin: 0;
+	width: 100%;
+	text-align: center;	
+	font-size: 2rem;
+}
+
+nav {
+	/*float: right;*/
+	width: 100%;
+	/*margin: 0 10%;*/
+	/*position: relative;*/
+}
+
+header ul, footer ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin: 0 auto;	
+	display: block;
+}
+
+header, footer {
+	background-color: #eef;
+}
+
+header a, footer a {
+	text-decoration: none;
+	text-transform: uppercase;
+	display: block;
+	color: white;
+	background-color: black;
+}
+
+/*header span, footer span {*/
+/*}*/
+
+header li, footer li {
+/*	position: absolute;
+	bottom: 0;
+*/	text-align: center;
+	float: right;
+	width: 10%;	
+	margin: 0 .8%;
+}
+
+/*====================HEADER AND FOOTER========================*/
+main {
+	background-color: black;
+	text-align: center;
+	margin: 0 auto;
+}
+
+h2 {
+	width: 96%;
+	color: white;
+	margin: 0;
+	padding: 1rem 0;
+	font-size: 2rem;
+}
+
+.book {
+	width: 94%;
+	/*margin: 0 auto;*/
+	float: left;
+	margin: 1rem 1.75%;
+	padding: 1.25%;
+	background-color: #eef;
+}
+
+.book:nth-child(even) {
+	background: #eef;
+}
+
+.book:nth-child(odd) {
+	background: #fee;
+}
+
+.book-text {
+	font-family: 'Georgia', serif;
+}
+
+.book-title {
+	font-weight: bolder;
+}
+.book-title, .book-price {
+	font-size: 1.5rem;
+}
+
+.book-text, .book-year {
+	font-size: 1rem;
+}
+
+.book-title, .bookprice, .book-text, .book-year {
+	padding: .75% 0;
+}
+
+@media screen and (min-width: 1000px) {
+	.book {
+		width: 19%;
+	}
+
+	.header-container {
+		margin: 0 1.75%;
+	}
+
+	h1 {
+		width: 50%;
+		text-align: left;
+	}
+
+	nav {
+		width: 50%;
+		float: right;
+	}
+}
+
+@media screen and (min-width: 450px) and (max-width: 1000px) {
+
+	.book {
+		width: 44%;
+	}
+
+	.header-container {
+		margin: 0 1.75%;
+	}
+
+	h1 {
+		width: 50%;
+		text-align: left;
+	}
+
+	nav {
+		width: 50%;
+		float: right;
+	}
+}

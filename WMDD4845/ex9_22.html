@@ -1,0 +1,56 @@
+<html>
+  <head>
+      <meta charset = "utf-8">
+      <title>Ex 9.22</title>
+      <script>
+        function start()
+        {
+          var question = document.getElementById( "question" );
+          generateQuestion();
+          var button = document.getElementById( "calculateButton" );
+          button.addEventListener( "click", displayAnswer, false );
+        } // end function start
+
+        function generateQuestion() {
+          num1 = randomNumber();
+          num2 = randomNumber();
+          question.innerText = 'How much is ' + num1 + ' times ' + num2 + '?'
+        }
+
+        function displayAnswer()
+        {
+          var answer = document.getElementById( "answer" );
+          var result = document.getElementById( "result" );
+          result.innerHTML = checkAnswer(num1, num2, parseInt(answer.value)) ? 'Very good!' : 'No. Please try again';
+          if (checkAnswer(num1, num2, parseInt(answer.value))) {
+            generateQuestion()
+          }
+        } // end function displayVolume
+
+        function checkAnswer( multiplicand, multiplier, answer )
+        {
+          return multiplicand * multiplier == answer
+        }
+
+        function randomNumber() {
+          return Math.floor(Math.random() * 10)
+        }
+
+        var num1, num2 = 0;
+        window.addEventListener( "load", start, false );
+      </script>
+  </head>
+  <body>
+      <form action = "#">
+        <p>
+            <label id="question">
+            </label>
+            <input id = "answer" type = "number">
+            <!--<input id = "secondField" type = "number"></label>-->
+            <input id = "calculateButton" type = "button"  value = "Calculate">
+        </p>
+      </form>
+      <p id = "result"></p>
+  </body>
+</html>
+

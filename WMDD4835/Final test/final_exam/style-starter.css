@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css?family=Amatica+SC:400,700|Cabin+Sketch|Comfortaa:300,400,700|Fredericka+the+Great|Kranky|Life+Savers|Pompiere');
+
+html 
+{
+	font-family: "Georgia", serif;
+}
+
+p {
+	color:grey;
+	line-height: 1.6;
+}
+
+h2, h3
+{
+	font-family: "Fredericka the Great", serif;
+}
+
+h3, h3 a, h3 a:visited
+{
+	font-size: 2rem;
+	margin:0;
+	color:rosybrown;
+}
+
+h2 
+{
+	color:rosybrown;
+}
+
+body 
+{
+	margin:0;
+
+}
+
+* 
+{
+	box-sizing:border-box;
+}
+
+a 
+{
+	text-decoration: none;
+}
+
+
+
+.menu-button, .menu-button:visited
+{
+
+	color:maroon;
+	font-size: 1.5rem;
+	position: absolute;
+	top:45vh;
+	left:20vh;
+	text-align: center;
+
+}
+
+header h1 
+{
+	font-family: "Kranky";
+	color:lightyellow;
+	font-size: 7vw;
+
+}
+
+.subtitle 
+{
+
+	color:thistle;
+	font-size: 10vw;
+	font-family: "Fredericka the Great";
+	opacity: .6;
+}
+
+nav ul 
+{
+	list-style-type: none;
+}
+
+nav a 
+{
+	font-family: "Amatica";
+	color:maroon;
+}
+
+nav 
+{
+	position: fixed;
+	z-index: 2;
+	width:100%;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color: rgba(255,255,220,.9);
+
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+
+	font-family: "Fredericka the Great";
+	color:rosybrown;
+	font-size: 4rem;
+
+	/*Invisible*/
+	visibility: hidden;
+	opacity:0;
+
+}
+
+.menu-visible 
+{
+	/*Visible*/
+	visibility: visible;
+	opacity: 1;
+
+}
+
+.main-menu 
+{
+	font-size: 1.5rem;
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	padding:0;
+	margin:0;
+}
+
+.main-menu li
+{
+
+	margin:1rem 0;
+	border-bottom: 4px double transparent;
+	
+}
+
+.close-button 
+{
+	position:fixed;
+	top:2rem;
+	right:2rem;
+	font-size: 2rem;
+}
+
+main 
+{
+	background-color: lightyellow;
+
+}
+
+section h2 
+{
+	width:100%;
+	font-size: 4rem;
+	margin:0;
+
+}
+
+section 
+{
+	
+	width:100%;
+	margin:auto;
+
+}
+
+
+h3 
+{
+	font-family: "Fredericka the Great";
+	text-shadow: 0 2px 0 white,2px 0 0 white,-2px 0 0 white,0 -2px 0 white;
+
+}
+
+article 
+{
+	
+	background-color:white;
+	border-radius: 5px;
+	padding:.5rem;
+	box-shadow: 2px 2px 5px rosybrown;
+
+}
+
+article img 
+{
+	width:100%;
+	height:200px;
+	border-radius: 5px;
+}
+
+footer 
+{
+	background-color: rosybrown;
+	height:250px;
+	text-align: center;
+	color:lightyellow;
+	font-size: 1.5rem;
+	padding-top:2rem;
+
+}
+
+@media screen and (min-width: 1200px)
+{
+	section 
+	{
+			width:70%;
+	}
+}
+
+

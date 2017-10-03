@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Random Unsplash Image Gallery</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	
+	// Your jQuery Code here
+		$(document).ready(function(){
+			$(".add").on("click", function() {
+				var img = $(this).next().next();
+				// img.clone();
+				$(".image-area").prepend(img.clone());
+				img.remove();
+				$(this).parent().append($("<img src=" + generateUrl() + " alt='random image'>"));
+				// $(".class.generator img[1st-of-type]")
+				// var image = $("<img>").attr("src", "pexels-photo-126382.jpeg");
+				// var imageContainer = $("<div></div>").addClass("image-container");
+				// imageContainer.append(image);
+				// $(this).next().after(imageContainer);
+			})
+			// $("body").on("click", "create-widget", function() {
+			// 	var widget =$(this).parent().clone();
+			// 	$(this).parent().after(widget);
+			// })
+			$(".generate").on("click", function() {
+				var img = $(this).next();
+				img.remove();
+				$(this).parent().append($("<img src=" + generateUrl() + " alt='random image'>"));
+			})
+		});
+		function generateUrl() {
+			return "https://unsplash.it/"+ randomNumber(499) +"/250/?random"
+		}
+		function randomNumber(element) {
+			return Math.floor(Math.random() * element + 1) + 100
+        }
+	</script>
+	<link rel="stylesheet" type="" href="./styles.css">
+</head>
+<body>
+
+	<div class="image-generator">
+		
+		<a href="#" class="add myButton">Add to Gallery</a>
+		<a href="#" class="generate myButton">Generate Random Image</a>
+
+		<img src="https://unsplash.it/400/250/?random" alt="random image">
+
+	</div>
+
+	<div class="image-area">
+		
+		<img src="https://unsplash.it/443/250/?random" alt="random image">
+		<img src="https://unsplash.it/353/250/?random" alt="random image">
+		<img src="https://unsplash.it/159/250/?random" alt="random image">
+		<img src="https://unsplash.it/186/250/?random" alt="random image">
+		<img src="https://unsplash.it/394/250/?random" alt="random image">
+		<img src="https://unsplash.it/490/250/?random" alt="random image">
+		<img src="https://unsplash.it/120/250/?random" alt="random image">
+		<img src="https://unsplash.it/422/250/?random" alt="random image">
+		<img src="https://unsplash.it/187/250/?random" alt="random image">
+		<img src="https://unsplash.it/140/250/?random" alt="random image">
+		<img src="https://unsplash.it/314/250/?random" alt="random image">
+		<img src="https://unsplash.it/465/250/?random" alt="random image">
+		<img src="https://unsplash.it/356/250/?random" alt="random image">
+		<img src="https://unsplash.it/171/250/?random" alt="random image">
+		<img src="https://unsplash.it/307/250/?random" alt="random image">
+		<img src="https://unsplash.it/442/250/?random" alt="random image">
+		<img src="https://unsplash.it/373/250/?random" alt="random image">
+		<img src="https://unsplash.it/102/250/?random" alt="random image">
+		<img src="https://unsplash.it/212/250/?random" alt="random image">
+		<img src="https://unsplash.it/140/250/?random" alt="random image">
+		<img src="https://unsplash.it/139/250/?random" alt="random image">
+		<img src="https://unsplash.it/459/250/?random" alt="random image">
+		<img src="https://unsplash.it/227/250/?random" alt="random image">
+		<img src="https://unsplash.it/345/250/?random" alt="random image">
+		<img src="https://unsplash.it/331/250/?random" alt="random image">
+		<img src="https://unsplash.it/143/250/?random" alt="random image">
+
+	</div>
+
+	<div class="image-generator">
+		
+		<a href="#" class="add myButton">Add to Gallery</a>
+		<a href="#" class="generate myButton">Generate Random Image</a>
+
+		<img src="https://unsplash.it/401/250/?random" alt="random image">
+
+	</div>
+</body>
+</html>

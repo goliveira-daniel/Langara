@@ -1,0 +1,55 @@
+/*
+SASS is like CSS but more powerful
+
+Any code that works in CSS will also work in SASS.
+
+SASS is compiled to CSS, so it works in any browser that supports CSS
+*/
+html {
+  font-family: sans-serif;
+}
+
+span {
+  color: teal;
+}
+
+/* This is a variable in Sass*/
+/*Mixins can be used like functions to call pieces of code with parameters*/
+ul {
+  font-weight: bold;
+  display: flex;
+}
+
+ul {
+  /*Sass allows us to use nested styles*/
+}
+
+ul span {
+  color: rgba(122, 144, 220, 0.6);
+}
+
+ul ul span {
+  color: deeppink;
+}
+
+ul ul ul span {
+  color: lime;
+}
+
+ul ul ul a {
+  color: lime;
+}
+
+ul ul ul a:visited {
+  color: pink;
+}
+
+/* Remember to omit the underscore and the file extension*/
+/* 
+We can import partial SCSS files into other SCSS files.
+A partial file must have a filename that starts with and underscore _.
+*/
+h1, h2, h3 {
+  font-style: italic;
+  border-bottom: 2px, solid black;
+}

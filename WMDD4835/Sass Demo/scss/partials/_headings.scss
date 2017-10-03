@@ -1,0 +1,9 @@
+/* 
+We can import partial SCSS files into other SCSS files.
+A partial file must have a filename that starts with and underscore _.
+*/
+
+h1,h2,h3 {
+    font-style: italic;
+    border-bottom: 2px, solid black;
+}

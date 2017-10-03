@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('./iconmoon/fonts/icomoon.eot?es4etj');
+  src:  url('./icomoon/fonts/icomoon.eot?es4etj#iefix') format('embedded-opentype'),
+    url('./icomoon/fonts/icomoon.ttf?es4etj') format('truetype'),
+    url('./icomoon/fonts/icomoon.woff?es4etj') format('woff'),
+    url('./icomoon/fonts/icomoon.svg?es4etj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    height: 100vh;
+    background: url("16564164776_4394f4fd54_o_transparent.png"), linear-gradient(to top right, transparent, transparent, transparent,  orangered);
+    background: url("16564164776_4394f4fd54_o_transparent_webp.webp"), linear-gradient(to top right, transparent, transparent, transparent,  orangered);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+header picture source, header picture img {
+    width: 200px;
+}
+
+header picture {
+    width: 500px;
+    flex-basis: 50%;
+}
+
+header h1 {
+    text-align: center;
+    flex-basis: 50%;
+    flex: 0 1 600px;
+}
+
+header p {
+    text-align: center;
+    flex-basis: 100%;
+}
+
+video {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    object-fit: fill;
+    z-index: -1;
+}
+
+nav {
+    /*display: flex;*/
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-basis: 100%;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav ul li {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+main img {
+    object-fit: cover;
+}
+
+/*.hidden {
+    visibility: hidden;
+}*/
+
+.social-menu ul li a {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+li a[href*="facebook"] {
+    content: "\e986";
+}

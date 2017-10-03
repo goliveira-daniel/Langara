@@ -1,0 +1,158 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Mono|Oswald:700,400);
+
+body {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc; /* For the design, not for responsiveness */
+}
+
+header h1 {
+  font-size: 2em;
+  padding-top: 2em;
+  margin-top: 0;
+  font-weight: normal;
+  background: black;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+header ul {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	background-color: black;
+	color: white;
+	font-size: .75rem;
+	font-family: Oswald, Trebuchet, Sans-Serif 
+}	
+
+/*header li {
+	float: left;
+	width: 16.6666%;
+	background-color: black;
+	margin-left: 0;*/
+}
+
+header a {
+	color: white;
+	text-decoration: none;
+	display: block;
+}
+
+h2 {
+	font-size: 3rem;
+	border-top: 1px solid #ccc;
+	/*background-color: salmon;*/
+	margin-top: 0;
+	font-family: Oswald, Trebuchet, Sans-Serif
+	font-weight: normal;
+	margin-bottom: 6%; 
+}
+
+h3 {
+	font-size: .75rem;
+	font-family: "PT Mono", Trebuchet, Sans-Serif;
+}
+
+h4 {
+	font-size: 1rem;
+	font-family: "PT Mono", Trebuchet, Sans-Serif;
+	margin-top: 0;
+}
+
+label {
+	display: block;	
+	font-size: 	.7rem;
+}
+
+input {
+	margin-bottom: 	.5rem;
+}
+
+textarea, label, input {
+	width: 100%;
+}
+
+input[type="submit"] {
+	display: block;
+	width: 100%;
+	margin-top: .75rem;
+	color: white;
+	/*thre's no way to find this gradient color, not even get close to it. I copied from your file*/
+		background: #4c4c4c; /* Old browsers */
+background: -moz-linear-gradient(top,  #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(12%,#595959), color-stop(25%,#666666), color-stop(39%,#474747), color-stop(50%,#2c2c2c), color-stop(51%,#000000), color-stop(60%,#111111), color-stop(76%,#2b2b2b), color-stop(91%,#1c1c1c), color-stop(100%,#131313)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
+}
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+h2 {
+	font-size: 	1.75rem;
+   } 
+}
+
+@media screen and (max-width: 800px){
+ 
+header nav ul {
+  font-size: 1em;
+  line-height: 2em;
+}
+ 
+h2 {
+  font-size: 1em;
+  line-height: 1.5em;
+  background: black;
+  color: white;
+  text-align: center;
+  font-weight: normal;
+}
+ 
+section, div {
+ position: relative;
+}
+ 
+section h3 {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+ 
+nav ul li.grid_2 {
+  width: 50%;
+  margin-bottom: 1em;
+  font-size: 1em;
+  color: black;
+  background-color: white;
+  text-align: center;
+  float: left;
+}
+ 
+header nav ul{
+	background-color: white;
+}
+
+ 
+header ul{
+background-color: white;
+}
+
+ 
+} /* END 800px QUERY */
+
+.clearboth {
+	clear: both;
+}

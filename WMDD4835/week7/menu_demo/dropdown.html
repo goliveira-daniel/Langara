@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="dropdown.css">
+	<link rel="stylesheet" href="icomoon/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(".menu-button").on("click", function(event) {
+				event.preventDefault();
+				$(".main-menu").toggleClass("strawberries");
+			});
+			$(window).on("scroll", function() {
+				console.log($(window).scrollTop())
+			})
+		});
+	</script>
+</head>
+<body>
+	
+		<header>
+			<h1>Title of the Page</h1>
+			<nav>
+
+				<!-- This button displays the menu -->
+				<a href="#" class="menu-button">
+					Menu
+					<span class="menu-button-icon"></span>
+				</a>
+
+				<ul class="main-menu">
+					<li><a href="#">item1</a></li>
+					<li><a href="#">item2</a></li>
+					<li><a href="#">item3</a></li>
+					<li>
+
+						<!-- This button displays the sub-menu -->
+						<a href="#" class="more-button">
+							item4
+							<span class="more-icon"></span>
+						</a>
+						
+						<ul class="sub-menu">
+							<li><a href="#">itemA</a></li>
+							<li><a href="#">itemB</a></li>
+							<li><a href="#">itemC</a></li>
+							<li><a href="#">itemD</a></li>
+						</ul>
+			
+					</li>
+					<li><a href="#">item5</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<article>
+				<h2>Title of First Article</h2>
+				<img src="images/bogdan-dada-156739.jpg" alt="">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nisi cupiditate voluptatibus fugit dolores beatae nesciunt molestias est delectus illo omnis, ipsam eaque rem! Ea laudantium, ipsum quaerat, magni dolores laboriosam perspiciatis eum, ad corrupti quis, vitae sit omnis vel suscipit veromolestiae eveniet. Ut, facilis iste cum laboriosam officiis, laborum quam, numquam illo accusantium dicta vel iure dolor porro eius. Quas?</p>
+			
+			</article>
+	
+			<article>
+				<h2>Title of Second Article</h2>
+				<img src="images/bogdan-dada-156739.jpg" alt="">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nisi cupiditate voluptatibus fugit dolores beatae nesciunt molestias est delectus illo omnis, ipsam eaque rem! Ea laudantium, ipsum quaerat, magni dolores laboriosam perspiciatis eum, ad corrupti quis, vitae sit omnis vel suscipit veromolestiae eveniet. Ut, facilis iste cum laboriosam officiis, laborum quam, numquam illo accusantium dicta vel iure dolor porro eius. Quas?</p>
+			
+			</article>
+	
+			<article>
+				<h2>Title of Third Article</h2>
+				<img src="images/bogdan-dada-156739.jpg" alt="">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nisi cupiditate voluptatibus fugit dolores beatae nesciunt molestias est delectus illo omnis, ipsam eaque rem! Ea laudantium, ipsum quaerat, magni dolores laboriosam perspiciatis eum, ad corrupti quis, vitae sit omnis vel suscipit veromolestiae eveniet. Ut, facilis iste cum laboriosam officiis, laborum quam, numquam illo accusantium dicta vel iure dolor porro eius. Quas?</p>
+			
+			</article>
+		</main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+body {
+	margin: 0 4%;
+}
+
+.page-wrapper {
+	max-width: 900px;
+	margin: 4rem auto;
+}
+
+header {
+	background-color: black;
+	color: white;
+	text-align: center;
+}
+
+header a {
+	color: white;
+	text-decoration: none;
+	display: block;
+}
+
+header li:hover {
+	background-color: #555;
+}
+
+/*
+LIST BASED MENU recipe:
+* remove dots
+* remove space reserved for dots
+* float the LIs
+* give LIs width value
+*/
+
+header ul {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	/*float: left;*/
+}
+
+header li {
+	float: left;
+	width: 12.5%;
+	/*border-left: 1px solid white;
+	border-right: 1px solid white;*/
+	border: 1px solid white;
+	border-right: none;
+	background-color: #262626;
+	/* Makes browser include border and padding INSIDE box
+	measurument
+
+	Traditional model puts both OUTSIDE the box measurement.
+	So traditional box model has padding and border ADDED TO
+	space a box takes up*/
+	box-sizing: border-box;
+}
+
+header li:first-of-type {
+	border-left: none;
+}
+
+/*header li:last-of-type {
+	border-color: orange;
+} 
+
+header li:nth-of-type(4){
+	border-color: pink;
+}
+
+header li:nth-of-type(even) {}
+
+header li:nth-of-type(odd) {}
+
+
+header li:nth-of-type(0n+3) {
+	border-width: 10px;
+}*/
+
+h1 {
+	font-family: verdana, tahoma, helvetica, sans-serif;
+	line-height: 1.5;
+	letter-spacing: 2px;
+	font-size: 3rem;
+	font-weight: normal;
+}
+
+h2 {
+	font-family: verdana, tahoma, helvetica, sans-serif;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+/*RESPONSIVENESS DESIGN =====================*/
+
+/*This tells the image: you must shrink as your container 
+shrins, but never get bigger than your natural width.
+
+ADD this to all your stylesheets. This is the first pillar
+of responsive design.*/
+img {
+	max-width: 100%;
+	height: auto; /*prevent distortion*/
+	border-bottom	: 1px solid lightgrey;
+	box-sizing: border-box;
+}
+
+article	 {
+	border: 1px solid lightgrey;
+	margin-top: 1%;
+	line-height: 1.5
+}
+
+p {
+	padding-left: 2%;
+	padding-right: 2%;
+	font-family: georgia;
+}
+
+i {
+	font-family: inherit;
+	font-style: inherit;
+}
+
+/*CLEARFIX: ADD this to all your stylesheets
+The clearfix class will force a parent with floated children
+to grow to contatain the floated children.
+
+Remember that a tall image in a short paragraph will 'hang 
+out of' the paragraph when the image is floated.
+
+CLEARFIX will insert a space into the top and bottom of the
+element and then clear it*/
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+    /*color: orange;*/
+}
+
+.clearfix:after {
+    clear: both;
+}

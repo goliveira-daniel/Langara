@@ -1,0 +1,38 @@
+/*========================GENERAL RULES===============================*/
+body, html {
+    height: 100%;
+    margin: 0;
+	font-family: 'Montserrat', serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+form {
+	margin: 5% 15%;
+	width: 70%;
+}
+
+.bond1, .bond2 {
+	width: 40%;
+	margin: 2.5% 5%;
+	float: left;
+	background-color: rgba(0, 0, 0, .07);
+}
+
+input, select, label {
+	width: 70%;
+	margin: 2.5% 15%;
+	margin-top: 0;
+}
+
+h1, h2, h3 {
+	text-align: center;
+}
+
+button {
+	display: flex; 
+	justify-content: center; 
+}

@@ -1,0 +1,74 @@
+@keyframes link-rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+a[href*=link1]:hover {
+    animation: link-rotate 1s normal linear 0s infinite;
+}
+
+a[href*=link2]:hover {
+    color: deeppink;
+    border-width: 1px;
+    transition: color 1s 0s ease-in-out, border 1s 1s ease-in-out;
+}
+
+a[href*=link2] {
+    transition: color 1s 0s ease-in-out, border 1s 1s ease-in-out;
+}
+
+.webplossless .bonus {
+    background-image: linear-gradient(to top right, transparent, pink), url("cow.webp");
+}
+
+.no-webplossless .bonus {
+    background-image: linear-gradient(to top right, transparent, pink), url("cow.png");
+}
+.bonus img {
+    height: 350px;
+    width: 700px;
+    margin: auto;
+    /*text-align: center;*/
+    display: block;
+    transform: rotateY(0deg);
+    -webkit-transition: transform 1s ease-in-out 0s;
+    -moz-transition: transform 1s ease-in-out 0s;
+    transition: transform 1s ease-in-out 0s;
+}
+
+.bonus:hover img {
+    transform: rotateY(360deg);
+    /*transform: perspective(2em);*/
+    -webkit-transition: transform 1s ease-in-out 0s;
+    -moz-transition: transform 1s ease-in-out 0s;
+    transition: transform 1s ease-in-out 0s;
+}
+
+.t1-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.t1-container p {
+    flex-basis: 100%;
+    order: -1
+}
+
+.t1-container h3 {
+    flex-basis: 40%;
+}
+
+.t1-container picture {
+    display: flex;
+}
+
+.t1-container picture img {
+    flex-basis: 60%;
+    flex-wrap: wrap;
+}

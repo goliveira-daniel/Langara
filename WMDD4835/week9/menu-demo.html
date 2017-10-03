@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Accessible Menu Demo</h1>
+        <nav>
+            <a href="#" aria-haspopup="true" aria-expanded="false">Menu</a>
+            <!--
+                * aria-haspopup indicates that this button contorls a pop-up menu
+                * aria-expanded indicates whether the menu has been expanded or not
+                -->
+            <ul class="main-menu">
+                <li><a href="#">Squids</a></li>
+                <li><a href="#">Cows</a></li>
+                <li>
+                    <a href="#" class="sub-menu-button" aria-haspopup="true" aria-expanded="false">Elephants</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Green Elephants</a></li>
+                        <li><a href="#">Orange Elephants</a></li>
+                        <li><a href="#">Blue Elephants</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Trees</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quos odit commodi veritatis iure dicta, dolorum unde laudantium sapiente nam nisi, aut provident, omnis voluptatem culpa esse placeat. Quibusdam autem sint excepturi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis illum minima quo, enim ratione voluptatem culpa fugit aliquam libero eos fugiat, sint quasi, ut minus dolor nam magnam quisquam repellat facilis ducimus, impedit similique? In, dolor quasi! Iste, expedita placeat voluptatem enim.</p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>Calculating Sphere Volumes</title>
+      <script>
+         function start()
+         {
+            var button = document.getElementById( "calculateButton" );
+            button.addEventListener( "click", displayMultiples, false );
+         } // end function start
+
+         function displayMultiples()
+         {
+            var first = document.getElementById( "firstField" );
+            var second = document.getElementById( "secondField" );
+            var result = document.getElementById( "result" );
+            result.innerHTML = "Is the second number multiple of the first? " + calculateMultiples( first.value,second.value );
+         } // end function displayVolume
+
+         function calculateMultiples( first, second )
+         {
+            return (first % second == 0 ? true : false)
+         }
+
+         window.addEventListener( "load", start, false );
+      </script>
+   </head>
+   <body>
+      <form action = "#">
+         <p>
+            <label>Enter two numbers:
+            <input id = "firstField" type = "number"></label>
+            <input id = "secondField" type = "number"></label>
+            <input id = "calculateButton" type = "button"  value = "Calculate">
+        </p>
+      </form>
+      <p id = "result"></p>
+   </body>
+</html>
+

@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Fontdiner+Swanky|Unkempt');
+
+html {font-size: 1em;}
+
+body {
+  background-color: white;
+  font-family: 'Fontdiner Swanky'+Unkempt;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {margin-bottom: 1.3em;}
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  /*font-family: 'Fontdiner Swanky', cursive;*/
+  font-weight: inherit;
+  line-height: 1.2;
+  text-align: center;
+}
+
+header h1 {
+  color: #E3CBAC;
+}
+
+h1 {
+  padding-top: 1rem;
+  margin-top: 0;
+  font-size: 3.998em;
+  font-family: 'Fontdiner Swanky';
+  /*text-align: center;*/
+}
+
+h2 {
+  font-size: 2.827em;
+  font-family: Unkempt;
+}
+
+h3 {
+  font-size: 1.999em;
+  font-family: Unkempt;
+  color: white;
+}
+
+h4, footer p {
+  font-family: 'Fontdiner Swanky';
+  text-align: center;
+  color: #E3CBAC;
+}
+
+h4 {
+  margin-top: 0;
+  padding-top: 3rem;
+  font-size: 1.414em;
+}
+
+header, footer {
+  background-color: #324654;
+  background-image:url('../images/marshall-schematic-6opacity.png');
+  font-family: 'lucida sans typewriter', 'arial black', sans-serif;
+}
+
+header ul, footer ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+header li, footer li {
+  border: 1px solid #E3CBAC;
+  text-align: center ;
+}
+
+header a, footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.content {
+  width: 70%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery {
+  background-color: black;
+}
+
+.gallery p {
+  color: white;
+  text-align: center;
+  font-family: Unkempt;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+p {
+  font-family: georgia, times, 'times new roman', serif;
+}
+
+th {
+  text-align: left;
+}
+
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+table tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  width: 33.33%;
+}

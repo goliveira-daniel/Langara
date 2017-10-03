@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>EX6_18</title>
+	<script>
+		let firNum = parseInt(window.prompt("Enter first integer"))
+		let secNum = parseInt(window.prompt("Enter second integer"))
+		let thiNum = parseInt(window.prompt("Enter third integer"))
+		let lazyArr = []
+		lazyArr.push(firNum)
+		lazyArr.push(secNum)
+		lazyArr.push(thiNum)
+		lazyArr.sort()
+		let sum = (firNum + secNum + thiNum)
+		let average = sum / 3
+		let product = firNum * secNum * thiNum
+		window.alert("The sum of numbers is " + sum + "\n The product of numbers is " 
+			+ product + "\n The average of numbers is " + average + "\n The smallest number is "
+			+ lazyArr[0] + "\n The biggest number is " + lazyArr[lazyArr.length - 1])
+	</script>
+</head>
+<body></body>
+</html>

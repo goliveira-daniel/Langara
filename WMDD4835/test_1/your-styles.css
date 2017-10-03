@@ -1,0 +1,124 @@
+.wrapper {
+    max-width: 1200px;
+    margin: auto; 
+    display: flex;
+}
+
+.wrapper {
+	background: linear-gradient(transparent, rgb(205, 93, 91)), url("./arches.png"), rgba(255, 200, 200, .8);
+	background-size: cover, cover, cover;
+	/*height: 100vh;*/
+    flex-wrap: wrap;
+}
+
+main {
+    display: flex;
+    flex-grow: 0;
+    flex-basis: 70%;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    transition: 1.5s;
+    flex-basis: 30%;
+}
+
+nav {
+    height: 100vh;
+}
+
+aside {
+    order: -1;
+}
+
+header:hover {
+    border: 4px dashed white;
+    background-color: rgba(255, 255, 255, .5);
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    transition: .5s;
+}
+
+ul {
+	list-style-type: none;
+	text-align: center;
+}
+
+footer {
+    flex-basis: 100%;
+}
+
+footer ul {
+}
+
+footer ul li {
+    display: inline-block;
+    text-align: center;
+    font-size: 2rem;
+}
+
+section:first-of-type p:first-of-type {
+    color: blue;
+    font-size: 1.3rem;
+}
+
+h3~* {
+    font-style: italic;
+}
+
+h3 + p {
+    color: blue;
+}
+
+section:nth-child(2) > p:first-of-type:first-line {
+    color: blue;
+}
+
+h3 > p {
+    color: blue;
+    font-size: 1.1rem;
+}
+
+li a {
+	transition: .5s;
+}
+
+li a:hover {
+	color: green;
+	transform: scale(1.1,1.1);
+	transition: 1s;
+}
+
+li:hover {
+	transform: scale(1.1,1.1);
+	transition: 1s;
+}
+
+a[href^="mailto"], a[href^="https"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+    color: white;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a[href*="mailto"]:before {
+  content: "\e986";
+}
+a[href*="facebook"]:before {
+  content: "\ea90";
+}
+a[href*="twitter"]:before {
+  content: "\ea96";
+}

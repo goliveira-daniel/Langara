@@ -1,0 +1,60 @@
+/*
+SASS is like CSS but more powerful
+
+Any code that works in CSS will also work in SASS.
+
+SASS is compiled to CSS, so it works in any browser that supports CSS
+*/
+
+html {
+    font-family: sans-serif;
+}
+
+span {
+    color: teal;
+}
+
+// ul ul ul span, ul ul ul a {
+//     color: lime;
+// }
+/* This is a variable in Sass*/
+$new-blue: rgba(122,144,220,.6);
+/*Mixins can be used like functions to call pieces of code with parameters*/
+@mixin span-color($col) {
+    span {
+        color: $col;
+    }
+}
+
+ul {
+    font-weight: bold;
+    display: flex;
+}
+
+ul {
+    span {
+        // color: orange;
+        color: $new-blue
+    }
+    /*Sass allows us to use nested styles*/
+    ul {
+        @include span-color(deeppink);
+        // span {
+        //     color: red;
+        // }
+    ul {
+        span {
+            color: lime;
+        }
+        a {
+            color: lime;
+            &:visited {
+                color: pink;
+            }
+        }
+    }
+    }
+}
+
+/* Remember to omit the underscore and the file extension*/
+@import "partials/_headings.scss" 

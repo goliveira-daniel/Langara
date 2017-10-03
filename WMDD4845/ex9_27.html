@@ -1,0 +1,110 @@
+<html>
+  <head>
+      <meta charset = "utf-8">
+      <title>Ex 9.27</title>
+      <script>
+        function start()
+        {
+          var question = document.getElementById( "question" );
+          // var oper = document.getElementsByName('operator');
+          generateQuestion(gradeLevel, oper);
+          var button = document.getElementById( "calculateButton" );
+          button.addEventListener( "click", displayAnswer, false );
+        } // end function start
+
+        function generateQuestion(gradeLevel, operator) {
+          num1 = randomNumber(10 ** gradeLevel);
+          num2 = randomNumber(10 ** gradeLevel);
+          question.innerText = 'How much is ' + num1 + ' ' + displayOperators(operator) + ' ' + num2 + '?'
+        }
+
+        function displayAnswer()
+        {
+          var answer = document.getElementById( "answer" );
+          var result = document.getElementById( "result" );
+          tries++
+          result.innerHTML = checkAnswer(num1, num2, oper, parseInt(answer.value)) ? correctAnswer(randomNumber(4)) : wrongAnswer(randomNumber(4));
+          if (tries == 10) {
+            if (rightAnswer < 7) {result.innerHTML = 'Please ask your instructor for extra help'}
+            tries = rightAnswer = 0; // sets variables back to initial state
+          } else if (checkAnswer(num1, num2, oper, parseInt(answer.value))) {
+            generateQuestion(gradeLevel, oper)
+          }
+        }
+
+        function correctAnswer(param) {
+          rightAnswer++
+          switch (param) {
+            default:
+            case 0: return 'Very good!'
+            case 1: return 'Excellent!'
+            case 2: return 'Nice work!'
+            case 3: return 'Keep up the good work!'
+          }
+        }
+
+        function wrongAnswer(param) {
+          switch (param) {
+            default:
+            case 0: return 'No. Please try again'
+            case 1: return 'Wrong. Try once more'
+            case 2: return 'Dont give up'
+            case 3: return 'No. Keep trying'
+          }
+        }
+
+        function displayOperators(param) {
+          switch (param) {
+            default:
+            case 1: return '+'
+            case 2: return '-'
+            case 3: return '*'
+            case 4: return '/'
+            case 5: return randomNumber(3) + 1;
+          }
+        }
+
+        function checkAnswer( number1, number2, operator, answer )
+        {
+          return operators[operator](number1 , number2) == answer
+        }
+
+        function randomNumber(element) {
+          return Math.floor(Math.random() * element)
+        }
+        var operators = {
+        '1': function(a, b){ return a+b},
+        '2': function(a, b){ return a-b},
+        '3': function(a, b){ return a*b},
+        '4': function(a, b){ return a/b}
+      }
+
+      function setOperator(option) {
+        oper = parseInt(option);
+      }
+      
+        var oper = 1;
+        var num1, num2, tries, rightAnswer;
+        num1 = num2 = tries = rightAnswer = 0;
+        var gradeLevel = parseInt(window.prompt("Enter a grade level: "));
+        window.addEventListener( "load", start, false );
+      </script>
+  </head>
+  <body>
+      <form action = "#">
+        <p>
+          <input type="radio" name="operator" value="1" onclick="setOperator(this.value)" checked> + only
+          <input type="radio" name="operator" value="2" onclick="setOperator(this.value)"> - only
+          <input type="radio" name="operator" value="3" onclick="setOperator(this.value)"> * only
+          <input type="radio" name="operator" value="4" onclick="setOperator(this.value)"> / only
+          <input type="radio" name="operator" value="5" onclick="setOperator(this.value)"> all operators<br>
+          <label id="question">
+          </label>
+          <input id = "answer" type = "number">
+          <input id = "calculateButton" type = "button"  value = "Calculate">
+        </p>
+      </form>
+      <p id = "result"></p>
+  </body>
+</html>
+

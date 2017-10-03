@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Accessible Menu</title>
+
+	<link rel="stylesheet" href="icomoon/style.css">
+
+	<link rel="stylesheet" href="menu.css">
+
+	<!-- jQuery Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script>
+
+		//Make sure the document is ready before modifying
+		$(document).ready(function(){	
+			// Handle mouse clicks on the main menu button
+			$(".sub-menu").on("click", function(){
+				
+				// Toggle "expanded" class on and off of the main-menu element
+				$(".main-menu").toggleClass("expanded");
+
+				// Toggle the value of aria-expanded
+				if ( $(".main-menu-button").attr("aria-expanded") == "true")
+
+					{
+						// Change the value of the aria-exanded attribute
+						$(".main-menu-button").attr("aria-expanded", "false");
+					}
+
+					else
+
+					{
+						// Change the value of the aria-exanded attribute
+						$(".main-menu-button").attr("aria-expanded", "true");
+					}
+
+			});
+
+			// sub menu button
+			$(".sub-menu-button").on("click", function(){
+				
+				// Toggle "expanded" class on and off of the sub-menu element
+				$(".sub-menu").toggleClass("expanded");
+
+				// Toggle the value of aria-expanded
+				if ( $(".sub-menu-button").attr("aria-expanded") == "true")
+
+					{
+						// Change the value of the aria-exanded attribute
+						$(".sub-menu-button").attr("aria-expanded", "false");
+					}
+
+					else
+
+					{
+						// Change the value of the aria-exanded attribute
+						$(".sub-menu-button").attr("aria-expanded", "true");
+					}
+
+			}); 
+
+			$(window).on("scroll", function() {
+				// alert("scroll event is working")
+				if ($(window).scrollTop() > 200) {
+					$("body").addClass("pink-background")
+				} else {
+					$("body").removeClass("pink-background")
+				}
+			});
+		});
+
+	</script>
+
+</head>
+<body>
+	
+	<header>	
+
+		<h1>Accessible Menu Tutorial</h1>
+
+		<nav>		
+
+			<!-- 
+			- aria-haspopup is required to let users know this button will expand a menu. 
+			- aria-expanded is required to let the user know if the menu has been expanded or not.-->
+			<a href="#" class="main-menu-button" aria-haspopup="true" aria-expanded="false">Menu</a>
+
+			<ul class="main-menu">	
+				<li>
+					<a href="#" class="sub-menu-button" aria-haspopup="true" aria-expanded="false">Chickens</a>
+
+					<ul class="sub-menu">
+						<li><a href="#">Blue Giraffes</a></li>
+						<li><a href="#">Purple Giraffes</a></li>
+						<li><a href="#">Orange Giraffes</a></li>
+					</ul>
+
+				</li>
+				<li><a href="#">Squids</a></li>
+				<li><a href="#">Giraffes</a></li>
+				<li><a href="#">Bees</a></li>
+			</ul>
+
+		</nav>
+	</header>
+
+	<main>
+		
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ut odio magnam provident voluptatum consequatur esse repudiandae, explicabo magni sint praesentium saepe culpa quis eum sit cupiditate ducimus voluptatem neque illo. Quos aut iusto quaerat aliquid non perspiciatis autem rerum repellat quis doloribus ad minima dolore dolores, at dignissimos veritatis sit, distinctio ipsa labore mollitia totam similique nulla obcaecati cumque! Fugit commodi hic, vitae saepe atque, dicta, expedita fuga voluptatem sapiente repellat provident repudiandae facere labore maiores at exercitationem, eum perferendis veniam libero. Inventore reprehenderit, quaerat natus. Sit quo eos iusto, enim, ipsum doloribus. Consectetur ex nobis, repudiandae accusantium aut.</p>
+
+	</main>
+
+</body>
+</html>

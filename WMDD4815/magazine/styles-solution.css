@@ -1,0 +1,279 @@
+/* Import Google Font OPEN SANS CONDENSED, bold weight (700) only */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
+
+/*Remove margin & padding defaults on the body, so that the header and footer go all the way to the edge of the browser window. */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+
+/* Comma: multiple selectors styled at same time with same value. */
+.site-header, .site-footer {
+	background-color: #F2AE72;
+}
+
+/*In the H1, I put a px LINE-HEIGHT. This is because I want the h1 text to determine the height of the whole header element. Using line-height means that the text will automatically sit in the vertical middle of the line. */
+
+.site-title h1{
+	font-family: "Open Sans Condensed";
+	font-size: 20px;
+	line-height: 50px;
+	font-weight: 700;
+	color: black;
+	margin: 0;
+}
+
+/* Color second word of the heading. */
+.site-title h1 span {
+	color: white;
+}
+
+/* Set common properties of all three of the boxes inside the HEADER.
+
+  The idea here is that we will have three boxes to hold the site name, the logo, and the hamburger menu and search icon. 
+  
+  The math might initially seem strange: I have made the three items 40% wide ( 2% for the left and right margin + 38% width ). However, I then in the next style overule the width value in the .site-logo style (while keeping the other properties).
+*/
+.site-title, .site-logo, .login-menu {
+	float: left;
+	width: 38%;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+/*Because .site-logo is also part of the combination style right above this one, the margin and float values of that style will make the .site-logo equal 20%. 
+
+The three child elements, in other words, will now take 40% + 20% + 40%.
+
+The reason I am doing this is that logo icon is small. If we make its container smaller, then there is more room in the other boxes (particularly the site-title). If the site-title has more room, it is less likely to creates layout problems at smaller widths.
+
+The margin-top value is used to push the icon down to line it up better with the site title to the left. 
+
+Because images are inline elements, putting text-align values on the parent elements will allow us to put them where we want them in the box (in this case, in the center).
+*/
+
+.site-logo {
+	width: 18%;
+	text-align: center;
+	margin-top: 9px;
+}
+
+/*Put these images on the right side of their container by using text-align. Margin-top is just used to push the images down a bit so that they line up with the other elements in the header.*/
+
+.login-menu {
+	text-align: right;
+	margin-top: 9px;
+}
+
+
+
+/* GALLERY =================================================================================== */
+
+
+/* Because I am using a mobile first approach here, the only styles that I use outside a query are the ones that will apply either throughout all sizes, or those that will apply from 0 width to our first breakpoint.  
+
+If we look at the screenshots, we see that the as the browser width changes, the header does not change layout, the footer changes minimally, and the gallery changes the most.
+
+Note that I do not give gallery-image a width here: the default value of any block element like a DIV or article, etc, is 100%.  This width is perfect for our phone layout. 
+
+
+Take a moment and think about how few styles I need here for the mobile view. */
+
+/*The gallery-landscape max-width is set so that the boxes do not get bigger than the images. The images are only 800px wide, so when there are two in row, they take up approximately 1600px. I say "approximately" because there is a margin between the gallery-image boxes, so it is a little more than 1600px. If we wanted the layout of the gallery to get wider than 1600px, we would need a either a new breakpoint, putting images three in a row, or we would need bigger images. */
+
+.gallery-landscape {
+	max-width: 1600px;
+}
+
+.gallery-image {
+	margin-bottom: 1rem;
+}
+
+.meta {
+	text-align: center;
+
+	/*This font size = .875 * default value of HTML element font-size. .875 * 16 = 14px  */
+	font-size: .875rem;
+}
+
+.meta span {
+	font-weight: bold;
+}
+
+.meta .stars img {
+	width: 16px;
+	height: 16px;
+}
+
+
+
+
+/* Prevent footer elements from coming up beside the floated gallery-image elements.*/
+
+.site-footer {
+	clear: both;
+}
+
+.site-footer .widget-area {
+	padding: 0 10%;
+}
+
+.site-footer h2 {
+	font-family: "open sans condensed";
+	font-size: 1rem;
+	margin-bottom: 0;
+}
+
+.site-footer a {
+	color: white;
+}
+
+/*Remove dots from list. Clear space reserved for dots. Remove default top margin to bring list closer to the H2.*/
+
+.site-footer ul {
+	list-style-type: none;
+	margin-left: 0;
+	margin-top: 0;
+	padding-left: 0;
+}
+
+.site-footer .widget-area {
+	padding: 0 2%;
+	}
+
+.site-footer .widget {
+	margin: 1%;
+	width: 48%;
+	float: left;
+}
+
+
+
+
+/* ======================================================================================================== */
+/* FIRST breakpoint. 
+
+Always determine your breakpoints by looking at your content at a range of sizes. A breakpoint becomes necessary when layout, readability, or usability problems arise because of the changed browser width. 
+
+If you have the Chrome Inspector open, the width and height of the browser window will appear in the top right when you resize it. */
+
+@media screen and (min-width: 600px)  {
+
+/* Move the gallery in from the edge of the screen by giving it a width. A margin-left and margin-right value of AUTO will center a block element. Because all the gallery-images are floated, the .gallery-landscape bottom margin will not work unless CLEARFIX is applied to it. */
+
+.gallery-landscape {
+	width: 80%;
+	margin: 40px auto;
+}
+
+.gallery-image {
+	border: 1px solid black;
+
+	width: 23%;
+	margin: 1%;
+
+	float: left;
+
+	/* If we add a border, our layout will break because the boxes will take up 25% + 2px. The fix is to change how the browser calculates width, by changing the box-sizing property from the default traditional CONTENT-BOX value to the BORDER-BOX value. Now the width will include the border (and would include the padding if there were any on this element). */
+
+	box-sizing: border-box;
+
+}
+
+/* Here I used an advanced CSS selector to target the first image box. 
+You could also just use a class applied to the first gallery-image. */
+
+.gallery-image:first-of-type {
+	width: 98%;
+}
+
+
+/*Make the footer menus go from 2 x 2 to 4 x 1.*/
+.site-footer .widget {
+	margin: 1%;
+	width: 23%;
+	float: left;
+}
+
+/*
+This area inside the footer I set to have the same width, padding and margin properties as the .gallery-landscape element. This will make the .widget menus line up with the gallery-image boxes. I'm just duplicating the structure in the section above the footer, in other words.
+*/
+
+.site-footer .widget-area {
+	width: 80%;
+	padding: 0;
+	margin: auto;
+}
+
+
+
+}  /* end 660px query*/
+
+/* ======================================================================================================== */
+/* SECOND breakpoint. */
+
+/*
+My first query was at 600px.  The next one needs to occur somewhere near 1000px. If you resize the browser window, you will see that the box holding the image gets bigger than the image. The image's actual width is only 800px. Our responsive images code won't let the image get bigger than it is naturally. 
+
+(The reason the query can be at 1000px rather than 800px is that I have resized .gallery-landscape, which holds the gallery-image boxes, to 80%. ) 
+
+
+*/
+
+/*By setting the width to 48, the boxes will take up 50%. The margin:1% and float:left value from the previous min-width query are still in effect, so there is no need to repeat them.
+
+I am using advanced selectors, allowing me to choose items by sequence, but you could just as easily put a class on both of the boxes.
+*/
+@media screen and (min-width: 1000px) {
+	.gallery-image:first-of-type, .gallery-image:nth-of-type(2) {
+		width: 48%;
+	}
+}
+
+max=
+/*After this query, our layout will work until their two big images reach their full width. That will be somewhere over 1600px. To prevent the two big boxes from getting bigger than their images, I just put a max-width of 1800px on the .gallery-landscape class. I did not put it on the body, because I want the header and footer to go all the way across, regardless of browser width. */
+
+
+
+
+/* Bonus point: small tweak. Here I want the word PHOTOGRAPHY to be on its own line between certain sizes. This is to prevent that text from awkwardly sitting. */
+
+@media screen and (min-width: 480px) and (max-width: 1000px) {
+
+/*	A SPAN is an inline elemnt, but here we tell the browser to treat it like a block between 480 and 1000px. 
+	This will make it occupy its own line, pushing the other content below it.	*/
+	.photographer span {
+		display: block;
+	}
+
+}
+
+
+
+
+/* Code that should go in all your stylesheets. ===================================================== */
+
+/*
+RESPONSIVE IMAGES: this makes images shrink as their containers shrink. Without this style, responsive web design is close to impossible. 
+*/
+img {
+	max-width: 100%;
+	height: auto;
+}
+/*
+CLEARFIX code taken from http://nicolasgallagher.com/micro-clearfix-hack/
+
+Clearfix is used when all the children of a parent element are floated. The parent then appears collapse. Clearfix reverses that.  You will almost always need to use clearfix if you are making float-based layouts.
+*/
+.cf:before,
+.cf:after {
+    content: " "; 
+    display: table; 
+}
+
+.cf:after {
+    clear: both;
+}

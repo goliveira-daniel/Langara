@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>ex10_17</title>
+        <script>
+            // const animal = (type) => {
+            //     let obj = {
+            //         type,
+            //         position,
+            //         move(diceResult) {
+            //             switch (this.type) {
+            //                 case 'tortoise':
+                                
+            //                     break;
+                        
+            //                 default:
+            //                     break;
+            //             }
+            //         }
+            //     }
+            // }
+            function animal() {
+                // public property
+                let type = '';
+                let position = 0;
+                // private constructor 
+                let __construct = (value) => {return setType(value)};
+                // getter
+                this.getType = () => {return this.type};
+                // setter
+                this.setType = (value) => {
+                    if (typeof value != 'string')
+                        throw 'Name must be a string';
+                    if (value.length < 2 || value.length > 20)
+                        throw 'Name must be 2-20 characters long.';
+                    this.type = value;
+                }
+                this.getPosition = () => {return this.position};
+                // setter
+                this.setPosition = (value) => {
+                    if (typeof value != 'number')
+                        throw 'Name must be a number';
+                    // if (value.length < 2 || value.length > 20)
+                        // throw 'Name must be 2-20 characters long.';
+                    value < 1 ? 1: this.position = value;
+                }
+                this.move = (value) => {
+                    if (typeof value != 'number')
+                        throw 'Name must be a number';
+                    // if (value.length < 2 || value.length > 20)
+                        // throw 'Name must be 2-20 characters long.';
+                        switch (this.getType()) {
+                            case 'tortoise':
+                                this.setPosition(this.getPosition() + this.moveTortoise(value))
+                                break;
+                            case 'hare':
+                                this.setPosition(this.getPosition() + this.moveHare(value))
+                                break;
+                            default:
+                                throw 'type of animal not valid';
+                        }
+                    // this.position = value;
+                }
+                this.moveTortoise = (value) => {
+                    switch (value) {
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                            return 3
+                        case 6:
+                        case 7:
+                            return -6
+                        case 8:
+                        case 9:
+                        case 10:
+                        default:
+                            return 1
+                    }
+                }
+            }
+            function rollD10Dice() {
+                return Math.floor(Math.random() * 9) + 1
+            }
+            let tortoise = new animal()
+            tortoise.setType('tortoise')
+            tortoise.setPosition(0)
+            tortoise.move(rollD10Dice())
+            alert(tortoise.getPosition())
+
+        </script>
+    </head>
+    <body></body>
+</html>

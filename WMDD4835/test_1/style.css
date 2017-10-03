@@ -1,0 +1,236 @@
+
+@import url('https://fonts.googleapis.com/css?family=Cormorant:300,400,500|Sorts+Mill+Goudy');
+@import url('https://fonts.googleapis.com/css?family=Antic+Slab|Lalezar|Sacramento|Slabo+13px');
+html
+{
+	font-family: "Sorts Mill Goudy", serif;
+}
+
+*
+{
+	box-sizing: border-box;
+}
+
+body
+{
+	margin:0;
+
+	background-image: url("nathan-lindahl-231628.jpg");
+	background-size: cover;
+}
+
+a 
+{
+	text-decoration: none;
+	color:darkslateblue;
+}
+
+a:visited
+{
+
+}
+
+section>a
+{
+	padding-left:3rem;
+}
+
+.wrapper
+{
+	
+	box-shadow: 0 0 60px brown;
+
+	background-color: rgba(255,200,200,.8);
+
+}
+
+header,footer,  aside
+{
+
+	background-color: transparent;
+}
+
+header
+{
+	padding:1rem;
+
+	border:4px dashed transparent;
+
+	border-radius: 8px;
+}
+
+h1,h2,h3
+{
+	font-family: Sacramento;
+	font-weight: 300;
+
+	color:darkslateblue;
+}
+
+h1
+{
+	font-size: 4rem;
+	display: inline-block;
+	color:darkslateblue;
+	margin:0;
+	
+	line-height: .75;
+	
+}
+
+h2
+{
+	font-size: 4rem;
+	margin:0;
+	margin-top: 1rem;
+
+	position: relative;
+
+	opacity: .3;
+}
+
+h3
+{
+	font-family: "Slabo 13px";
+	padding-left: 3rem;
+}
+
+
+.subtitle
+{
+
+	font-family: 'Slabo 13px';
+	font-weight: 300;
+
+	font-size: 2rem;
+
+	text-align: center;
+	color:rgb(170, 60, 60) ;
+
+}
+
+h1, .subtitle
+{
+	margin:2rem 0;
+}
+
+section
+{
+	padding:.5rem;
+	
+	margin-bottom: 1.5rem;
+}
+
+section
+{
+
+	background-color: white;
+
+	border-radius: 5px;
+
+	background: linear-gradient(to bottom, white 80%, rgba(255,255,255,.8) 100%)
+}
+
+section p 
+{
+	padding:1rem;
+	padding-left: 3rem;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+
+section p a
+{
+	border-bottom: 1px dashed darkslateblue;
+	
+}
+
+aside
+{
+	background-color: rgb(240,240,240);
+	border-radius: 5px;
+	
+}
+
+aside span
+{
+	display: inline-block;
+	font-family: 'Slabo 13px';
+	font-size: 3rem;
+	text-shadow: 2px -2px 0px lightgrey;
+	color:white;
+	
+	margin:2rem;
+
+}
+
+nav 
+{
+	background-color: rgba(255,255,255,.5);
+	border-radius:8px;
+}
+
+nav ul
+{
+	text-align: center;
+	list-style-type: none;
+
+	padding:0;
+}
+
+nav a
+{
+	font-family: 'Slabo 13px';
+	color: rgb(170, 60, 60);
+}
+
+nav ul li 
+{
+	font-size: 1.5rem;
+	line-height: 2;
+
+}
+
+
+@media screen and (min-width: 800px)
+
+{
+	.wrapper
+	{
+		box-shadow: 0 0 40px brown;
+		padding:.5em;
+	}
+
+	.subtitle
+	{
+		font-size: 2rem;
+	}
+
+	h1
+	{
+		font-size: 5.5rem;
+	}
+
+	article
+	{
+		padding:0 1rem;
+	}
+
+	aside span
+	{
+	margin:0;	
+
+	}
+
+	aside
+	{
+		margin:1rem;
+	}
+
+	nav
+	{
+		background-color: transparent;
+	}
+
+}

@@ -1,0 +1,25 @@
+.main-menu
+
+{
+	display: none;
+}
+
+.main-menu.expanded 
+{
+	display:block;
+}
+
+.sub-menu
+
+{
+	display: none;
+}
+
+.sub-menu.expanded 
+{
+	display:block;
+}
+
+
+
+

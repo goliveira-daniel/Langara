@@ -1,0 +1,74 @@
+header {
+	background: linear-gradient(to right, transparent, white), url("photos/hoffman.png"),url("photos/paul-morris-215023.jpg");
+	background-size: cover, auto, cover;
+	animation: bcg-move .5s linear 0s infinite;
+}
+
+header h1{
+	animation: fade-in 3s linear 0s 1, right-to-left 2s linear 0s 1;
+}
+
+header p {
+	animation: left-to-right 2s linear 1.5s 1, late-fade-in 3s linear 0s 1;
+}
+
+@keyframes bcg-move {
+	0% {background-position: 0% 0%, 0% 0%, 0% 0%}
+
+	100% {background-position: 0% 0%, 16px 0%, 0% 0%}
+}
+
+@keyframes fade-in {
+	0% {opacity: 0}
+	100% {opacity: 1}
+}
+@keyframes late-fade-in {
+	0% {opacity: 0}
+	50% {opacity: 0}
+	100% {opacity: 1}
+}
+
+@keyframes left-to-right {
+	0% {transform: translateX(-50%)}
+	100% {transform: translateX(0%)}
+}
+@keyframes right-to-left {
+	0% {transform: translateX(50%)}
+	100% {transform: translateX(0%)}
+}
+/*END OF HEADER STYLE*/
+/*START OF NAV STYLES*/
+nav {
+	position: fixed;
+	transition: transform .5s ease-in-out .1s;
+	transform: translateX(-70%);
+	top: 0;
+}
+
+nav span {
+	position: absolute;
+	left: 75%;
+}
+
+nav ul {opacity: 0}
+
+nav:hover {
+	transition: transform .5s ease-in-out .1s;
+	transform: translateX(0%)
+}
+
+nav:hover span {
+	transition: opacity .5s ease-in-out .25s;
+	opacity: 0;
+}
+
+nav:hover ul {
+	transition: opacity .5s ease-in-out .25s;
+	opacity: 1;
+}
+
+/*END OF NAV STYLE*/
+/*START OF MAIN STYLES*/
+main, header {
+	padding-left: 5%;
+}

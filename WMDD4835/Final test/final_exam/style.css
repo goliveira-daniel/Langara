@@ -1,0 +1,94 @@
+header {
+    height: 100vh;
+    width: 100%;
+    background: url("./swirl.png"), linear-gradient(to top right, lightyellow, rosybrown);
+    /* display: flex;
+    flex-direction: row;
+    flex: 0 1 50%; */
+}
+
+video {
+    height: 100vh;
+    width: 100%;
+    position: absolute; 
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    /* z-index: -1;  */
+    object-fit: cover;
+}
+
+section {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+article {
+    margin: 1rem 0 1rem 0;
+}
+
+#bees {
+    flex: 0 1 100%;
+    flex-direction: column;
+
+}
+
+#bees img {
+    position: relative;
+}
+
+#bees > h3 {
+    font-size: 4rem;
+    top: -200;
+    left: 0; 
+    position: absolute;
+}
+
+#bees p {
+    position: relative;
+}
+
+#bees > p::first-line {
+    font-weight: bold;
+    color: rosybrown;
+}
+
+#bees ~ article {
+    flex-direction: row;;
+    /* flex-basis: 33%; */
+    flex: 0 1 33%;
+    flex-wrap: wrap;
+}
+
+footer {
+    background: url("./swirl.png");
+
+}
+
+nav {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s, visibility 0s;  
+
+}
+
+header li a:hover {
+    border-bottom: 1px solid green;
+    transition: border-bottom 2s;
+}
+
+header li a {
+    transition: border-bottom 2s;
+}
+
+@keyframes moving {
+    0% {
+        background: url("./swirl.png"), linear-gradient(to top right, lightyellow, rosybrown);
+    }
+
+    100% {
+        background: url("./swirl.png"), linear-gradient(to top right, lightyellow, rosybrown);
+    }
+}

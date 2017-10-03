@@ -1,0 +1,144 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WMDD 4835 Final Exam</title>
+    <link rel="stylesheet" type="text/css" href="style-starter.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="icomoon/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("header a").on("click", function() {
+				$("nav").toggleClass("menu-visible");
+			})
+		})
+      // jQuery code goes here
+
+    </script>
+  </head>
+  <body>
+  
+  	<header>
+  		<h1>WMDD 4835 <br> HTML/CSS 2</h1>
+  		<div class="subtitle">Final Exam</div>
+			<video width="" height="" autoplay muted loop poster="./bird-poster.png">
+				<source src="./bird.mp4" type="video/mp4">
+			</video>
+  		<!-- Video tag goes here -->
+
+      <a href="#" class="menu-button">Menu</a>
+  		<nav>
+        Main Menu
+        <ul class="main-menu">
+  				<li><a href="#chickens">Chickens</a></li>
+	  			<li><a href="#foxes">Foxes</a></li>
+	  			<li><a href="#giraffes">Giraffes</a></li>
+	  			<li><a href="#bees">Bees</a></li>
+	  		</ul>
+
+        <a href="#" class="close-button"></a>
+
+  		</nav>
+  	</header>
+
+  	<main>
+  		<section>
+  			<h2>Section Heading</h2>
+
+  			<p>
+  				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  				consequat. 
+  			</p>
+
+  			<article id="bees">
+				<picture>
+					<source srcset="bee-cropped.jpg" media="(max-width: 995px)">
+					<source srcset="bee-small.jpg 1000w, bee-big.jpg 1200w" type="">
+					<img src="./bee-small.jpg" alt="a Bee">
+				</picture>
+
+			<!-- Bee image goes here -->
+
+			<h3>Bees</h3>
+
+  				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  			</article>
+
+  			<article id="chickens">
+
+				<picture>
+					<source srcset="chicken-cropped.jpg" media="(max-width: 995px)">
+					<source srcset="chicken-small.jpg 1000w, chicken-big.jpg 1200w" type="">
+					<img src="./chicken-small.jpg" alt="a Chicken">
+				</picture>
+  				<!-- Chickens image goes here -->
+
+  				<h3>Chickens</h3>
+
+  				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  				consequat. </p>
+
+  			</article>
+
+  			<article id="foxes">
+
+				<picture>
+					<source srcset="fox-cropped.jpg" media="(max-width: 995px)">
+					<source srcset="fox-small.jpg 1000w, fox-big.jpg 1200w" type="">
+					<img src="./fox-small.jpg" alt="a Fox">
+				</picture>
+  				<!-- foxes image goes here -->
+
+  				<h3>Foxes</h3>
+
+  				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  				consequat. </p>
+
+  			</article>
+
+  			<article id="giraffes">
+
+				<picture>
+					<source srcset="giraffe-cropped.jpg" media="(max-width: 995px)">
+					<source srcset="giraffe-small.jpg 1000w, giraffe-big.jpg 1200w" type="">
+					<img src="./giraffe-small.jpg" alt="a Giraffe">
+				</picture>
+  				<!-- giraffe image goes here -->
+
+  				<h3>Giraffes</h3>
+
+  				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  				consequat. </p>
+
+  			</article>
+
+  		</section>
+
+  	</main>
+
+  	<footer>
+
+  		&copy; 2017 Jordan Miller
+
+  	</footer>
+
+  </body>
+</html>

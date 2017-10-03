@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Advent+Pro:300,400,500|Days+One|El+Messiri:400,500,600|Flamenco|Lobster|Megrim|Satisfy');
+
+
+a 
+{
+	text-decoration: none;
+}
+
+h1
+{
+	font-family: "El Messiri";
+	color:white;
+	font-weight: 400;
+}
+
+.logo
+
+{
+	width:calc(5% + 10rem);
+}
+
+header h1
+
+{
+	font-size: calc(3vw + 2rem);
+}
+
+.subtitle
+{
+	font-family: "Flamenco";
+	color:white;
+	font-size: calc(2vw + 1rem);
+}
+
+.main-menu
+
+{
+	background-color: rgba(80,100,120,.7);
+	font-family: flamenco;
+	font-size: 3rem;
+}
+
+.main-menu ul li 
+{
+	width:calc(150px + 3vw);
+	height:calc(150px + 3vw);
+	background-color: white;
+	border-radius: 5px;
+}
+
+.main-menu ul li a, .main-menu ul li a:visited
+
+{
+
+	color:grey;
+	
+}
+
+
+section
+{
+	font-family: georgia;
+	font-size: 1.5rem;
+	line-height: 1.8;
+
+}
+
+section>p, section>h2
+
+{
+	max-width: 1000px;
+	margin:auto;
+	padding: 0 1rem;
+
+}
+
+section>p
+ {
+ 	padding:2rem 1rem;
+
+ }
+
+section h2
+{
+	font-family: "El Messiri";
+	margin-top: 2rem;
+}
+
+section img
+
+{
+	width:100%;
+	height:20rem;
+	
+}
+
+footer
+
+{
+	height: 30vh;
+	background-color:#ea6957;
+}
+
+.social-menu li
+{
+	display: block;
+	font-size: 4rem;
+	margin:2rem;
+
+}
+
+.social-menu a 
+{
+	color:white;
+	display: block; 
+	
+}
+
+
+
+

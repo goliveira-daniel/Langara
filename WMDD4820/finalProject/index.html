@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Investment Comparator</title>
+	<link rel="stylesheet" href="css/styles.css" type="text/css">
+</head>
+<body>
+	<h1>Investment comparator</h1>
+	<h2>Compare two different investments</h2>
+	<form id="Investment Comparator">
+		<div class="bond1">
+			<h3>Bond 1</h3>
+			<label for="Bond1">Bond type</label>
+			<select id="Bond1">
+				<option value="CDB">CDB</option>
+				<option value="LCI">LCI</option>
+				<option value="LCA">LCA</option>
+			</select>
+			<label for="interestRateType1">Interest Rate Type</label>
+			<select id="interestRateType1">
+				<option value="Fixed">Fixed</option>
+				<option value="Variable">Variable</option>
+			</select>
+			<label for="interestRateValue1">Interest Rate Value</label>
+			<input type="number" id="interestRateValue1" placeholder="% of interest rate">
+			<label for="timeToMaturity1">Time to Maturity</label>
+			<input type="number" id="timeToMaturity1" placeholder="Time to maturity in days">
+			<label for="faceValue1">Face Value</label>
+			<input type="number" id="faceValue1" placeholder="Face Value" min="0" max="10000" step="any">
+		</div>
+		<div class="bond2">
+			<h3>Bond 2</h3>
+			<label for="Bond2">Bond type</label>
+			<select id="Bond2">
+				<option value="CDB">CDB</option>
+				<option value="LCI">LCI</option>
+				<option value="LCA">LCA</option>
+			</select>
+			<label for="interestRateType2">Interest Rate Type</label>
+			<select id="interestRateType2">
+				<option value="Fixed">Fixed</option>
+				<option value="Variable">Variable</option>
+			</select>
+			<label for="interestRateValue2">Interest Rate Value</label>
+			<input type="number" id="interestRateValue2" placeholder="% of interest rate">
+			<label for="timeToMaturity2">Time to Maturity</label>
+			<input type="number" id="timeToMaturity2" placeholder="Time to maturity in days">
+			<label for="faceValue2">Face Value</label>
+			<input type="number" id="faceValue2" placeholder="Face Value" min="0" max="10000" step="any">
+		</div>
+		<div>
+			<button id="calculate">Calculate</button>
+		</div>
+	</form>
+	<p id="bond1_result"></p>
+	<p id="bond2_result"></p>
+	<script src="app.js"></script>
+</body>
+</html>
