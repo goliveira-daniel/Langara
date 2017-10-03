@@ -45,3 +45,13 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+# Videos and others big files
+.mp4
+.mov
+.mpg
+.mpeg
+
+# Ignore node modules folder and files, run NPM install to install them all again
+node_modules
