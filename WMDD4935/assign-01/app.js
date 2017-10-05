@@ -1,4 +1,6 @@
 const fs = require('fs')
+var md = require('markdown-it')();
+// var result = md.render('# markdown-it rulezz!');
 
 const folders = {
     posts: './posts',
@@ -13,7 +15,8 @@ console.log(`Watching for new posts at ${folders.posts}. Press CTRL + C to stop 
 fs.watch(folders.posts,'utf8', (event, file) => {
     if (file) {
         console.log(`File ${file} changed. Generating new index.html...`);
-        writeFile('index.html', dataToWrite())
+        writeFile('index.html', dataToWrite(getPostsNames(folders.posts)))
+        getPostsText(folders.posts);
     }
 })
 
@@ -31,7 +34,7 @@ function getPostsText(dir) {
         files.forEach((file) => {
             // read the files, we need to provide the directory again as the array only contains file names
             fs.readFile(`${dir}/${file}`, 'utf8', (err, data) => {
-                writeFile(`${file}.html`, dataToWrite(data))
+                writeFile(`${file}.html`, dataToWrite(md.render(data)))
                 // console.log(data)
             })
         })
