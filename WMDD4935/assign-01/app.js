@@ -6,7 +6,7 @@ const folders = {
     build: './build'
 }
 getPostsText(folders.posts);
-writeFile('index.html', dataToWrite());
+writeFile('index.html', dataToWrite(getPostsNames(folders.posts)));
 
 console.log(`Watching for new posts at ${folders.posts}. Press CTRL + C to stop the watcher and finish execution.`)
 
@@ -31,14 +31,15 @@ function getPostsText(dir) {
         files.forEach((file) => {
             // read the files, we need to provide the directory again as the array only contains file names
             fs.readFile(`${dir}/${file}`, 'utf8', (err, data) => {
-                console.log(data)
+                writeFile(`${file}.html`, dataToWrite(data))
+                // console.log(data)
             })
         })
     })
 }
 
-function dataToWrite() {
-    return fs.readFileSync(folders.templates + '/index_h.html', 'utf8') + getPostsNames(folders.posts) + fs.readFileSync(folders.templates + '/index_f.html', 'utf8')
+function dataToWrite(text) {
+    return fs.readFileSync(folders.templates + '/index_h.html', 'utf8') + text + fs.readFileSync(folders.templates + '/index_f.html', 'utf8')
 }
 
 function writeFile(file, text) {
