@@ -55,3 +55,9 @@ Temporary Items
 
 # Ignore node modules folder and files, run NPM install to install them all again
 node_modules
+
+# Ignore zip files, they usually contain files already in the repo
+.zip
+.tar
+.gzip
+.rar
