@@ -24,7 +24,7 @@ create(3,"test3", "test", null)
 create(4,"test4", "test", null)
 create(5,"test5", "test", null)
 
-console.log(read(1))
+read(1)
 
 update(1,'nathan', 'other test', 'blah')
 
