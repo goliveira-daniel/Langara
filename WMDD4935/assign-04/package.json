@@ -11,9 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "dotenv": "^4.0.0",
     "firebase": "^4.7.0",
     "hapi": "^16.6.2",
+    "hapi-auth-basic": "^5.0.0",
+    "joi": "^13.0.2",
     "monk": "^6.0.5"
   },
   "devDependencies": {
