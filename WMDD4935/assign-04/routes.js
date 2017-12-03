@@ -78,10 +78,14 @@ module.exports = [
 {
     method: 'DELETE',
     path: '/books/{bookID}',
+    config: {
+        auth: 'api'
+    },
     handler: (request, reply) => {
         let ref = firebase.database().ref('books/') 
         ref.on('value', function(snapshot) {
             snapshot.forEach(child => {
+                console.log(child.val())
                 if (child.val().id == request.params.bookID) {
                     ref.child(child.key).remove()
                     .then(function() {
@@ -98,7 +102,7 @@ module.exports = [
     method: 'POST',
     path: '/books',
     config: {
-        // auth: 'simple',
+        auth: 'api',
         validate: {
             payload: {
                 id: Joi.number(),
@@ -135,6 +139,7 @@ module.exports = [
     method: 'PUT',
     path: '/books/{bookID}',
     config: {
+        auth: 'api',
         validate: {
             payload: {
                 id: Joi.number(),
