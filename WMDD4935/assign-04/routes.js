@@ -1,5 +1,7 @@
 const firebase = require("firebase");
-require('dotenv').config()
+const Joi = require('joi');
+
+// require('dotenv').config()
 
 var config = {
     apiKey: "AIzaSyC6G4GDPiFqrueps0u6NrFIZ68P1J_mfIg",
@@ -11,6 +13,7 @@ var config = {
 }
 
 firebase.initializeApp(config);
+
 
 module.exports = [
 {
@@ -70,7 +73,6 @@ module.exports = [
             console.log("The read failed: " + errorObject.code);
             return reply ('Server error').code(404)
         })
-        // let book = books.find({_id: Number(request.params.bookID)})
     }
 },
 {
@@ -95,9 +97,29 @@ module.exports = [
 {
     method: 'POST',
     path: '/books',
+    config: {
+        // auth: 'simple',
+        validate: {
+            payload: {
+                id: Joi.number(),
+                title: Joi.string(),
+                author: Joi.string(),
+                genre: Joi.string(),
+                publication: Joi.object({
+                    date: Joi.date().iso(),
+                    publisher: Joi.string()
+                }),
+                copies: Joi.array().items(Joi.object({
+                    available: Joi.boolean(),
+                    edition: Joi.number(),
+                    borrower: Joi.string()
+                }))
+            }
+        },
+    },
     handler: (request, reply) => {
         const book = request.payload
-        console.log(book)
+        // console.log(book)
         firebase.database().ref('books/').push().set(book)
         .then(function() {
             console.log('Synchronization succeeded');
@@ -107,21 +129,42 @@ module.exports = [
             console.log('Synchronization failed');
             return reply('Synchronization failed');
         });
-        // firebase.database().ref('books/').set({
-        //     id: book.id,
-        //     title: book.title,
-        //     author: book.author,
-        //     genre: book.genre,
-        //     publication: {
-        //         date: book.publication.date,
-        //         publisher: book.publication.publisher
-        //     },
-        //     copies: {
-        //         available: book.copies.available,
-        //         editon: book.copies.edition,
-        //         borrower: books.copies.borrower
-        //     }
-        // });
+    }
+},
+{
+    method: 'PUT',
+    path: '/books/{bookID}',
+    config: {
+        validate: {
+            payload: {
+                id: Joi.number(),
+                title: Joi.string(),
+                author: Joi.string(),
+                genre: Joi.string(),
+                publication: Joi.object({
+                    date: Joi.date().iso(),
+                    publisher: Joi.string()
+                }),
+                copies: Joi.array().items(Joi.object({
+                    available: Joi.boolean(),
+                    edition: Joi.number(),
+                    borrower: Joi.string()
+                }))
+            }
+        },
+    },
+    handler: (request, reply) => {
+        const book = request.payload
+        // console.log(book)
+        firebase.database().ref('books/'+ request.params.bookID).update(book)
+        .then(function() {
+            console.log('Synchronization succeeded');
+            return reply('Synchronization succeeded');
+        })
+        .catch(function(error) {
+            console.log('Synchronization failed');
+            return reply('Synchronization failed');
+        });
     }
 }
 ]
