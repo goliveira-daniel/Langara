@@ -17,15 +17,15 @@ For the POST test, it's necessary to set the body data for the request as raw, a
     - title - string
     - author - string
     - genre - string
-    - publication - array of objects
-        - date - date
+    - publication - object
+        - date - date in ISO 8601 format
         - publisher - string
     - copies - array of objects
         - available - boolean
         - edition - number
         - borrower - string
 - EXAMPLE:
-{"id":10,"title":"Extraordinary Stories (Historias extraordinarias)","author":"Andras Worman","genre":"Drama|Mystery","publication":{"date":"26/06/1986","publisher":"Pacocha LLC"},"copies":[{"available":false,"edition":1,"borrower":"wgrimbleby0"},{"available":false,"edition":2,"borrower":"abeswell1"},{"available":true,"edition":3,"borrower":"ddrinkhill2"}]}
+    - {"id":10,"title":"Extraordinary Stories (Historias extraordinarias)","author":"Andras Worman","genre":"Drama|Mystery","publication":{"date":"1987-05-21","publisher":"Pacocha LLC"},"copies":[{"available":false,"edition":1,"borrower":"wgrimbleby0"},{"available":false,"edition":2,"borrower":"abeswell1"},{"available":true,"edition":3,"borrower":"ddrinkhill2"}]}
 
 ## Endpoints
 ### GET
@@ -34,7 +34,10 @@ For the POST test, it's necessary to set the body data for the request as raw, a
 * /books/{id} - return all books matching the id. If no books is found, a null response will be sent.
 
 ### DELETE
-* /books/{id} - delete the node matching the id. If no book is founds, a message is returned.
+* /books/{id} - delete the node matching the id. If no book is found, a message is returned.
 
 ### POST
 * /books/ - Adds a new node in the database. The data to be inserted needs to be sent in the request body as JSON and must match the format of the BOOK object. 
+
+### PUT
+* /books/{id} - Updates the node in the database keeping the same ID. The whole object must be sent again.
