@@ -1,5 +1,4 @@
 const firebase = require("firebase");
-// const monk = require('monk')
 require('dotenv').config()
 
 var config = {
@@ -13,11 +12,6 @@ var config = {
 
 firebase.initializeApp(config);
 
-// get the DBURL value 
-// const db = monk(process.env.DBURL)
-// get or create a collection in mongo
-// const books = db.get('books')
-
 module.exports = [
 {
     method: 'GET',
@@ -30,17 +24,42 @@ module.exports = [
     method: 'GET',
     path: '/books',
     handler: (request, reply) => {
-        firebase.database().ref('books/').on('value', function(data) {
-            return reply(data.val())
-            }, function (errorObject) {
-                console.log("The read failed: " + errorObject.code);
-        });
-        // return reply(allBooks) 
+        if (Object.keys(request.query).length !== 0) {
+            const validQuery = ["author", "title", "genre"]
+            let queryKey = Object.keys(request.query)[0]
+            let queryValue = request.query[queryKey]
+            console.log(queryValue)
+            if (validQuery.indexOf(queryKey) >= 0) {
+                let booksMatched = []
+                firebase.database().ref('books/').on('value', function(snapshot) {
+                    snapshot.forEach(child => {
+                        if (child.val()[queryKey].toLowerCase().includes(queryValue.toLowerCase())) {
+                            booksMatched.push(child.val())
+                        }
+                    });
+                        if (booksMatched.length > 0) {
+                            return reply (booksMatched)
+                        } else {
+                            return reply ('no book by this query').code(404)
+                        }
+                    }, function (errorObject) {
+                        console.log("The read failed: " + errorObject.code);
+                });
+            } else {
+                return reply ('query not recognized. try searching by book author, title or genre').code(404)
+            }
+        } else {
+            firebase.database().ref('books/').on('value', function(data) {
+                return reply(data.val())
+                }, function (errorObject) {
+                    console.log("The read failed: " + errorObject.code);
+            });
+        }
     }
 },
 {
     method: 'GET',
-    path: '/books/{bookID}',
+    path: '/books/{bookID*}',
     handler: (request, reply) => {
         let book = firebase.database().ref('books/' + request.params.bookID)
         book.on('value', function (data) {
@@ -48,36 +67,5 @@ module.exports = [
         })
         // let book = books.find({_id: Number(request.params.bookID)})
     }
-},
-    {
-    method: 'GET',
-    path: '/books/{genre*}',
-    handler: queryName
 }
 ]
-
-function queryName (request, reply) {
-    if (request.query.genre) {
-        let booksMatched = []
-        let books = firebase.database().ref('books/')
-        books.on('value', function (snapshot) {
-            // console.log(snapshot)
-            snapshot.forEach(child => {
-                console.log(request.query.genre)
-                if (child.val().genre == request.query.genre) {
-                    booksMatched.push(child.val())
-                }
-            });
-            if (booksMatched.length > 0) {
-                return reply (booksMatched)
-            } else {
-                return reply ('no book by this genre').code(404)
-            }
-        })
-    // let book = books.find({name: request.query.name})
-    // if (Object.keys(book).length !== 0) {
-    //     return reply(book)
-    // }
-}
-return reply ('query not recognized. try searching by name').code(404)
-}
