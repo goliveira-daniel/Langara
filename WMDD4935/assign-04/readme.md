@@ -27,6 +27,9 @@ For the POST test, it's necessary to set the body data for the request as raw, a
 - EXAMPLE:
     - {"id":10,"title":"Extraordinary Stories (Historias extraordinarias)","author":"Andras Worman","genre":"Drama|Mystery","publication":{"date":"1987-05-21","publisher":"Pacocha LLC"},"copies":[{"available":false,"edition":1,"borrower":"wgrimbleby0"},{"available":false,"edition":2,"borrower":"abeswell1"},{"available":true,"edition":3,"borrower":"ddrinkhill2"}]}
 
+## Authentication
+Methods DELET, PUT and POST need authentication. It's necessary to add key 'Authorization' with value 'Bearer secret' at the header of the call.
+
 ## Endpoints
 ### GET
 * /books - return all books in the database
