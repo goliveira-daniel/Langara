@@ -1,0 +1,5 @@
+Daniel Garcia de Oliveira
+ID 100291515
+goliveira.daniel@gmail.com
+
+To execute just run app.js
