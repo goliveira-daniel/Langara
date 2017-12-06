@@ -3,7 +3,8 @@ const Hapi = require('hapi')
 const path = require('path');
 const fs = require('fs');
 // const vision = require('vision');
-const rot13 = require('rot13-transform');
+// const rot13 = require('rot13-transform');
+const joi = require('joi');
 
 const server = new Hapi.Server()
 
@@ -26,16 +27,19 @@ server.connection({
 // });
 
 server.route({
-    method: 'GET',
-    path: '/',
+    method: 'POST',
+    path: '/login',
     config: {
-        handler: (req, res) => { 
-            let file = fs.createReadStream(path.join(__dirname, 'file.txt'));
-            res(file.pipe((buf) => {
-                this.queue(rot13(buf.toString()));
-            }, function () {
-                this.queue(null);
-            }));
+        handler: (req, reply) => { 
+            reply('login successful');
+        },
+        validate: {
+            payload: joi.object({
+                isGuest: joi.boolean().required(),
+                username: joi.string().when('isGuest', { is: false, then: joi.required() }),
+                password: joi.string().alphanum(),
+                accessToken: joi.string().alphanum()
+            }).options({ allowUnknown: true }).without('password', 'accessToken')
         }
     }    
 })

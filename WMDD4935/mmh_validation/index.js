@@ -3,7 +3,8 @@ const Hapi = require('hapi')
 const path = require('path');
 const fs = require('fs');
 // const vision = require('vision');
-const rot13 = require('rot13-transform');
+// const rot13 = require('rot13-transform');
+const joi = require('joi');
 
 const server = new Hapi.Server()
 
@@ -27,15 +28,15 @@ server.connection({
 
 server.route({
     method: 'GET',
-    path: '/',
+    path: '/chickens/{breed}',
     config: {
         handler: (req, res) => { 
-            let file = fs.createReadStream(path.join(__dirname, 'file.txt'));
-            res(file.pipe((buf) => {
-                this.queue(rot13(buf.toString()));
-            }, function () {
-                this.queue(null);
-            }));
+            reply('Chicken breed: ' + request.params.breed)
+        },
+        validate: {
+            params: {
+                breed: joi.string().required()
+            }
         }
     }    
 })
