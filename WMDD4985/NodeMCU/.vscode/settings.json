@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\Focused Daniel\\.platformio\\penv\\Scripts;C:\\Users\\Focused Daniel\\.platformio\\penv;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\PuTTY\\;C:\\Users\\Focused Daniel\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Focused Daniel\\AppData\\Local\\Programs\\Git\\cmd;C:\\Users\\Focused Daniel\\AppData\\Local\\GitHubDesktop\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\PuTTY\\;C:\\Users\\Focused Daniel\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Focused Daniel\\AppData\\Local\\Programs\\Git\\cmd;C:\\Users\\Focused Daniel\\AppData\\Local\\GitHubDesktop\\bin"
+    }
+}
