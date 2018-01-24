@@ -8,15 +8,23 @@
 
 import Foundation
 
-let arrDays:[String] = ["first","second", "third", "forth", "fifth", "sixth", "seventh","eighth", "nineth","tenth", "eleventh", "twelfth"]
-
-let arrGifts:[String] = ["a Partridge in a pear-tree", "Two Turtle doves", "Three French hens", "Four Colly birds", "Five Gold rings", "six Geese a laying", "Seven Swans a swimming", "Eight Maids a milking", "Nine Drummers drumming", "Ten Pipers piping", "Eleven Ladies dancing", "Twelve Lords a leaping"]
-
-for day in stride(from: 0, to: arrDays.count, by: 1) {
-    print("On the \(arrDays[day]) day of Christmas my true love sent to me")
-    var copyDay = day
-    while copyDay >= 0 {
-        print(arrGifts[copyDay])
-        copyDay -= 1
+func palindrome(argument: [String]) -> Bool {
+    for ch in stride(from: 0, to: argument.count, by: 1) {
+        if (argument[ch] != argument[(argument.count - 1) - ch]) {
+        }
     }
+    return true
 }
+
+print("Enter a 5-digits number")
+let str:String = readLine()!
+let arrStr = Array(str)
+
+while !palindrome(argument: arrStr) {
+    print("Your number is not a palindrome")
+    print("Enter a 5-digits number")
+}
+
+print("Your number is a palindrome")
+
+
