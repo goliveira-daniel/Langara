@@ -9,7 +9,7 @@ DHT dht;
 #define DHT11_PIN D3
 
 // Update these with values suitable for your network.
-const char* ssid = "dlink-9420";
+const char* ssid = "eduroam";
 const char* password = "amutn88020";
 const char* mqtt_server = "broker.mqtt-dashboard.com";
 //const char* mqtt_server = "iot.eclipse.org";
@@ -94,8 +94,8 @@ void reconnect() {
 void setup() {
   Serial.begin(115200);
   dht.setup(DHT11_PIN);
-  setup_wifi();
-  client.setServer(mqtt_server, 1883);
+  // setup_wifi();
+  // client.setServer(mqtt_server, 1883);
 //   client.setCallback(callback);
 //   int chk = dht.read11(DHT11_PIN);
   Serial.print(" Starting Humidity: " );
@@ -107,10 +107,10 @@ void setup() {
 }
 
 void loop() {
-  if (!client.connected()) {
-    reconnect();
-  }
-  client.loop();
+  // if (!client.connected()) {
+    // reconnect();
+  // }
+  // client.loop();
   long now = millis();
   // read DHT11 sensor every 6 seconds
   if (now - lastMsg > 6000) {
@@ -125,6 +125,6 @@ void loop() {
      msg.toCharArray(message,58);
      Serial.println(message);
      //publish sensor data to MQTT broker
-    client.publish("OsoyooData", message);
+    // client.publish("OsoyooData", message);
   }
 }
