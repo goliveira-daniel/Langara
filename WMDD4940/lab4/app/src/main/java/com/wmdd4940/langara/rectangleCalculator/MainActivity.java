@@ -6,10 +6,7 @@ import android.os.Bundle;
 import java.text.NumberFormat;
 
 import android.view.KeyEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
@@ -18,19 +15,17 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 public class MainActivity extends AppCompatActivity
-        implements OnEditorActionListener, OnClickListener {
+        implements OnEditorActionListener {
 
     // define variables for the widgets
-    private EditText billAmountEditText;
-    private TextView percentTextView;
-    private Button percentUpButton;
-    private Button percentDownButton;
-    private TextView tipTextView;
-    private TextView totalTextView;
+    private EditText widthEditText;
+    private EditText heightEditText;
+    private TextView areaTextView;
+    private TextView perimeterTextView;
 
     // define instance variables that should be saved
-    private String billAmountString = "";
-    private float tipPercent = .15f;
+    private String widthString = "";
+    private String heightString = "";
 
     // define the SharedPreferences object
     private SharedPreferences savedValues;
@@ -41,17 +36,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         // get references to the widgets
-        billAmountEditText = (EditText) findViewById(R.id.billAmountEditText);
-        percentTextView = (TextView) findViewById(R.id.percentTextView);
-        percentUpButton = (Button) findViewById(R.id.percentUpButton);
-        percentDownButton = (Button) findViewById(R.id.percentDownButton);
-        tipTextView = (TextView) findViewById(R.id.tipTextView);
-        totalTextView = (TextView) findViewById(R.id.totalTextView);
+        widthEditText = (EditText) findViewById(R.id.widthEditText);
+        heightEditText = (EditText) findViewById(R.id.heightEditText);
+        areaTextView = (TextView) findViewById(R.id.areaTextView);
+        perimeterTextView = (TextView) findViewById(R.id.perimeterTextView);
 
         // set the listeners
-        billAmountEditText.setOnEditorActionListener(this);
-        percentUpButton.setOnClickListener(this);
-        percentDownButton.setOnClickListener(this);
+        widthEditText.setOnEditorActionListener(this);
+        heightEditText.setOnEditorActionListener(this);
 
         // get SharedPreferences object
         savedValues = getSharedPreferences("SavedValues", MODE_PRIVATE);
@@ -62,8 +54,8 @@ public class MainActivity extends AppCompatActivity
     public void onPause() {
         // save the instance variables
         Editor editor = savedValues.edit();
-        editor.putString("billAmountString", billAmountString);
-        editor.putFloat("tipPercent", tipPercent);
+        editor.putString("widthString", widthString);
+        editor.putString("heightString", heightString);
         editor.commit();
 
         super.onPause();
@@ -74,11 +66,11 @@ public class MainActivity extends AppCompatActivity
         super.onResume();
 
         // get the instance variables
-        billAmountString = savedValues.getString("billAmountString", "");
-        tipPercent = savedValues.getFloat("tipPercent", 0.15f);
+        widthString = savedValues.getString("widthString", "");
+        heightString = savedValues.getString("heightString", "");
 
         // set the bill amount on its widget
-        billAmountEditText.setText(billAmountString);
+        widthEditText.setText(widthString);
 
         // calculate and display
         calculateAndDisplay();
@@ -87,25 +79,33 @@ public class MainActivity extends AppCompatActivity
     public void calculateAndDisplay() {
 
         // get the bill amount
-        billAmountString = billAmountEditText.getText().toString();
-        float billAmount;
-        if (billAmountString.equals("")) {
-            billAmount = 0;
+        widthString = widthEditText.getText().toString();
+        heightString = heightEditText.getText().toString();
+        float width;
+        if (widthString.equals("")) {
+            width = 0;
         } else {
-            billAmount = Float.parseFloat(billAmountString);
+            width = Float.parseFloat(widthString);
+        }
+
+        float height;
+        if (heightString.equals("")) {
+            height = 0;
+        } else {
+            height = Float.parseFloat(heightString);
         }
 
         // calculate tip and total
-        float tipAmount = billAmount * tipPercent;
-        float totalAmount = billAmount + tipAmount;
+        float area = width * height;
+        float perimeter = 2 * width + 2 * height;
 
         // display the other results with formatting
-        NumberFormat currency = NumberFormat.getCurrencyInstance();
-        tipTextView.setText(currency.format(tipAmount));
-        totalTextView.setText(currency.format(totalAmount));
+//        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        areaTextView.setText(Float.toString(area));
+        perimeterTextView.setText(Float.toString(perimeter));
 
-        NumberFormat percent = NumberFormat.getPercentInstance();
-        percentTextView.setText(percent.format(tipPercent));
+//        NumberFormat percent = NumberFormat.getPercentInstance();
+//        percentTextView.setText(percent.format(heightString));
     }
 
     @Override
@@ -115,20 +115,6 @@ public class MainActivity extends AppCompatActivity
             calculateAndDisplay();
         }
         return false;
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.percentDownButton:
-                tipPercent = tipPercent - .01f;
-                calculateAndDisplay();
-                break;
-            case R.id.percentUpButton:
-                tipPercent = tipPercent + .01f;
-                calculateAndDisplay();
-                break;
-        }
     }
 
 }

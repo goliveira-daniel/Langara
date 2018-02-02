@@ -14,57 +14,21 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="@string/bill_amount_label"
+        android:text="@string/rectangle_height_label"
         android:textSize="@dimen/text_size"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/percentLabel"
+        android:id="@+id/billAmountLabel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/widthEditText"
+        android:layout_alignBottom="@+id/widthEditText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/billAmountEditText"
-        android:layout_marginTop="19dp"
-        android:text="@string/tip_percent_label"
+        android:text="@string/rectangle_width_label"
         android:textSize="@dimen/text_size"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/percentTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/percentLabel"
-        android:layout_alignBottom="@+id/percentLabel"
-        android:layout_alignLeft="@+id/billAmountEditText"
-        android:layout_alignStart="@+id/billAmountEditText"
-        android:text="@string/tip_percent"
-        android:textSize="@dimen/text_size" />
-
-    <Button
-        android:id="@+id/percentDownButton"
-        android:layout_width="@dimen/buttons_width_height"
-        android:layout_height="@dimen/buttons_width_height"
-        android:layout_alignBaseline="@+id/percentUpButton"
-        android:layout_alignBottom="@+id/percentUpButton"
-        android:layout_alignEnd="@+id/percentUpButton"
-        android:layout_alignRight="@+id/percentUpButton"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:text="@string/decrease"
-        android:textSize="@dimen/text_size" />
-
-    <Button
-        android:id="@+id/percentUpButton"
-        android:layout_width="@dimen/buttons_width_height"
-        android:layout_height="@dimen/buttons_width_height"
-        android:layout_alignBottom="@+id/percentTextView"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:text="@string/increase"
-        android:textSize="@dimen/text_size" />
 
     <TextView
         android:id="@+id/tipLabel"
@@ -72,20 +36,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/percentDownButton"
-        android:layout_marginTop="40dp"
-        android:text="@string/tip_amount_label"
+        android:layout_below="@+id/widthEditText"
+        android:layout_marginTop="23dp"
+        android:text="@string/area_label"
         android:textSize="@dimen/text_size"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tipTextView"
+        android:id="@+id/areaTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/percentDownButton"
-        android:layout_alignStart="@+id/percentDownButton"
-        android:layout_alignTop="@+id/tipLabel"
-        android:text="@string/tip_amount"
+        android:layout_above="@+id/totalLabel"
+        android:layout_alignLeft="@+id/widthEditText"
+        android:layout_alignStart="@+id/widthEditText"
+        android:text="@string/area_value"
         android:textSize="@dimen/text_size" />
 
     <TextView
@@ -96,27 +60,38 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tipLabel"
         android:layout_marginTop="39dp"
-        android:text="@string/total_amount_label"
+        android:text="@string/perimeter_label"
         android:textSize="@dimen/text_size"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/totalTextView"
+        android:id="@+id/perimeterTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tipTextView"
-        android:layout_alignStart="@+id/tipTextView"
+        android:layout_alignLeft="@+id/areaTextView"
+        android:layout_alignStart="@+id/areaTextView"
         android:layout_alignTop="@+id/totalLabel"
-        android:text="@string/total_amount"
+        android:text="@string/perimeter_value"
         android:textSize="@dimen/text_size" />
 
     <EditText
-        android:id="@+id/billAmountEditText"
+        android:id="@+id/widthEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/percentUpButton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/heightEditText"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/heightEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/percentUpButton"
         android:ems="10"
         android:inputType="number" />
 
