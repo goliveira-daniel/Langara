@@ -1,0 +1,17 @@
+# Link to your projects code on GitHub
+https://github.com/goliveira-daniel/Langara/tree/master/WMDD4999/assignment02
+
+# instructions for testing your API
+To create a recipe, just call the create endpoint with a text parameter and the recipe. To update, you must send also the id of the recipe in the url
+To delete, and read, just pass the id as an URL parameter.
+
+# URLs for:
+## Creating a recipe
+  POST - https://vd9ani9i1l.execute-api.us-east-2.amazonaws.com/dev/recipes
+## Reading a recipe
+  GET - https://vd9ani9i1l.execute-api.us-east-2.amazonaws.com/dev/recipes
+  GET - https://vd9ani9i1l.execute-api.us-east-2.amazonaws.com/dev/recipes/{id}
+## Deleting a recipe
+  DELETE - https://vd9ani9i1l.execute-api.us-east-2.amazonaws.com/dev/recipes/{id}
+## Updating a recipe
+  PUT - https://vd9ani9i1l.execute-api.us-east-2.amazonaws.com/dev/recipes/{id}
