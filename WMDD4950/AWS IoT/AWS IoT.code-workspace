@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"terminal.integrated.env.windows": {
+			"PATH": "C:\\Users\\Focused Daniel\\.platformio\\penv\\Scripts;C:\\Users\\Focused Daniel\\.platformio\\penv;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\PuTTY\\;C:\\Program Files\\RedHat\\java-1.8.0-openjdk-1.8.0.161-1\\bin;C:\\Go\\bin;C:\\Users\\Focused Daniel\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Focused Daniel\\AppData\\Local\\Programs\\Git\\cmd;C:\\Users\\Focused Daniel\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\Focused Daniel\\Documents\\GitHub\\flutter\\bin;C:\\Users\\Focused Daniel\\Documents\\GitHub\\tech.danielgoliveira\\Hugo\\bin;;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\PuTTY\\;C:\\Program Files\\RedHat\\java-1.8.0-openjdk-1.8.0.161-1\\bin;C:\\Go\\bin;C:\\Users\\Focused Daniel\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Focused Daniel\\AppData\\Local\\Programs\\Git\\cmd;C:\\Users\\Focused Daniel\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\Focused Daniel\\Documents\\GitHub\\flutter\\bin;C:\\Users\\Focused Daniel\\Documents\\GitHub\\tech.danielgoliveira\\Hugo\\bin;",
+			"PLATFORMIO_CALLER": "vscode"
+		}
+	}
+}
