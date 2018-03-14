@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">lab5</string>
+    <string name="newGame">New Game</string>
+    <string name="newGameText">Click on the button below to start a new game</string>
+    <string name="playerTurn">Player %1$s\'s turn</string>
+    <string name="playerWin">Player %1$s\'s wins!</string>
+    <string name="draw">It\'s a draw</string>
+</resources>
