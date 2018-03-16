@@ -26,7 +26,7 @@ exports.processImage = (event, callback) => {
   }
 
   // Exit if this is triggered on a file that is not on images folder.
-  if (!path.parse(object.name).dir == '/images') {
+  if (path.parse(object.name).dir == 'tiles') {
     console.warn('This is not on images folder.');
     return null;
   }
