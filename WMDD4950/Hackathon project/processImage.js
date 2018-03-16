@@ -40,20 +40,25 @@ exports.processImage = (event, callback) => {
 
 // Slice the given file using ImageMagick.
 function sliceImage (file) {
-  const tempLocalFilename = `/tmp/${path.parse(file.name).base}`;
+  // const tempLocalFilename = `/tmp/${path.parse(file.name).base}`;
+  const tempLocalFilename = path.join(os.tmpdir(), file.name);
+  const tempLocalDir = path.dirname(tempLocalFile);
+  const baseFileName = path.basename(file.name, path.extname(file.name));
+  const tempLocalFilenameNoExt = path.join(os.tmpdir(), baseFileName);
+  const baseFileExtension = path.extname(file.name);
 
   // Download file from bucket.
-  return file.download({ destination: tempLocalFilename })
+  return file.download({ destination: tempLocalDir })
     .catch((err) => {
       console.error('Failed to download file.', err);
       return Promise.reject(err);
     })
     .then(() => {
-      console.log(`Image ${file.name} has been downloaded to ${tempLocalFilename}.`);
+      console.log(`Image ${file.name} has been downloaded to ${tempLocalDir}.`);
 
-      // Blur the image using ImageMagick.
+      // Slice the image using ImageMagick.
       return new Promise((resolve, reject) => {
-        exec(`convert ${tempLocalFilename} -crop 4x4@ +repage  +adjoin ${file.name}@_%d.jpg`, { stdio: 'ignore' }, (err, stdout) => {
+        exec(`convert ${tempLocalFilename} -crop 4x4@ +repage  +adjoin ${tempLocalFilenameNoExt}@_%d${baseFileExtension}`, { stdio: 'ignore' }, (err, stdout) => {
           if (err) {
             console.error('Failed to slice image.', err);
             reject(err);
@@ -78,7 +83,7 @@ function sliceImage (file) {
       console.log(`Image ${file.name} has been sliced.`);
 
       // Upload the Sliced image back into the bucket.
-      return file.bucket.upload(tempLocalFilename + '_1.jpg', { destination: 'test.jpg' })
+      return file.bucket.upload(`${tempLocalFilenameNoExt}_1${baseFileExtension}`, { destination: 'test.jpg' })
         .catch((err) => {
           console.error('Failed to upload slice image.', err);
           return Promise.reject(err);
