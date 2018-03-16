@@ -35,14 +35,14 @@ exports.processImage = (event, callback) => {
 
   console.log(`CHECK THIS OUT: ${JSON.stringify(object.name)}.`);
   console.log(`Slicing ${file.name}.`);
-  return sliceImage(file);
+  return sliceImage(file, 4);
 
 
 //  callback();
 };
 
 // Slice the given file using ImageMagick.
-function sliceImage (file) {
+function sliceImage (file, amountOfTiles) {
   // const tempLocalFilename = path.parse(file.name).base;
   const tempLocalFilename = path.join(os.tmpdir(), path.parse(file.name).base);
   const tempLocalDir = path.dirname(tempLocalFilename);
@@ -62,7 +62,7 @@ function sliceImage (file) {
 
       // Slice the image using ImageMagick.
       return new Promise((resolve, reject) => {
-        exec(`convert ${tempLocalFilename} -crop 4x4@ +repage  +adjoin ${tempLocalFilenameNoExt}_%d${baseFileExtension}`, { stdio: 'ignore' }, (err, stdout) => {
+        exec(`convert ${tempLocalFilename} -crop ${amountOfTiles}x${amountOfTiles}@ +repage  +adjoin ${tempLocalFilenameNoExt}_%d${baseFileExtension}`, { stdio: 'ignore' }, (err, stdout) => {
           if (err) {
             console.error('Failed to slice image.', err);
             reject(err);
@@ -84,14 +84,19 @@ function sliceImage (file) {
     //     });
     // })
     .then(() => {
-      console.log(`Uploading tiles ${tempLocalFilenameNoExt}_1${baseFileExtension}`);
-
-      // Upload the Sliced image back into the bucket.
-      return file.bucket.upload(`${tempLocalFilenameNoExt}_1${baseFileExtension}`, { destination: `tiles/${baseFileName}_1${baseFileExtension}` })
+      for (let index = 0; index < Math.pow(amountOfTiles,2); index++) {
+        // const element = array[index];
+        
+        console.log(`Uploading tiles ${tempLocalFilenameNoExt}_${index}${baseFileExtension}`);
+        
+        // Upload the Sliced image back into the bucket.
+        file.bucket.upload(`${tempLocalFilenameNoExt}_${index}${baseFileExtension}`, { destination: `tiles/${baseFileName}_${index}${baseFileExtension}` })
         .catch((err) => {
           console.error('Failed to upload slice image.', err);
           return Promise.reject(err);
         });
+      }
+      return Promise.resolve
     })
     .then(() => {
       console.log(`Sliced image has been uploaded to tiles/${baseFileName}_1${baseFileExtension}.`);
