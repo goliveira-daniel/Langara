@@ -2,7 +2,7 @@
 
 const crypto = require('crypto');
 const fs = require('fs');
-// const dotenv = require('dotenv')
+const dotenv = require('dotenv').config()
 
 // const awsAccessKeyId = 'AKIAI5XKEMGCPIMO7B2A';
 const awsAccessKeyId = process.env.awsAccessKeyId;

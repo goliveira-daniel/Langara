@@ -4,13 +4,27 @@ const doc = require('dynamodb-doc');
 
 const dynamo = new doc.DynamoDB();
 
-module.exports.postprocess = (event) => {
-  const payload = {}
-  payload.TableName = "wmdd4999-assignment03"
+module.exports.postprocess = (event, context, callback) => {
   event.Records.forEach((record) => {
-    payload.Item.FileName.S = record.s3.object.key;
-    payload.Item.FileSize.S = record.s3.object.size;
-    console.log(`New .png object has been created: ${payload.Item.FileName} (${payload.Item.FileSize} bytes)`);
-    dynamo.putItem(payload)
+    console.log(`New .png object has been created: ${record.s3.object.key} (${record.s3.object.size} bytes)`);
+    return dynamo.putItem({
+      "TableName": "wmdd4999-assignment03",
+      "Item" : {
+        "FileName": {"S": record.s3.object.key},
+        "EventTime": {"S": record.eventTime},
+        "id": {"S": record.s3.object.sequencer}
+      }
+    }, (error) => {
+      // handle potential errors
+      if (error) {
+        console.error(error);
+        callback(null, {
+          statusCode: error.statusCode || 501,
+          headers: { 'Content-Type': 'text/plain' },
+          body: 'Couldn\'t create the todo item.',
+        });
+        return;
+      }
+    });
   });
-};
+}
