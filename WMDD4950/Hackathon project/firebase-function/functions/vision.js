@@ -9,7 +9,7 @@ const vision = require("@google-cloud/vision");
  */
 exports.labelDetection = file => {
     const client = new vision.ImageAnnotatorClient();
-    client.labelDetection(tempFile)
+    client.labelDetection(file)
     .then(results => {
         const labels = results[0].labelAnnotations;
         console.log("Labels:");

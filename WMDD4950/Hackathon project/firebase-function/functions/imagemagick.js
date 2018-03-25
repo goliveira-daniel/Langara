@@ -1,57 +1,43 @@
 "use strict";
 
 const exec = require("child_process").exec;
-
+const path = require("path");
 /**
- * Triggered from a message on a Cloud Storage bucket.
+ * Slice an image file into a given grid size.
  *
  * @param {!file} event the image file to be sliced.
- * @param {!amountOfTiles} Number Size of the grid to be created.
+ * @param {!gridSize} Number Size of the grid to be created.
  */
 // Slice the given file using ImageMagick.
-exports.slice = (file, amountOfTiles) => {
+exports.slice = (file, gridSize) => {
   // const tempLocalFilename = path.parse(file.name).base;
-  const tempLocalFilename = path.join(os.tmpdir(), path.parse(file.name).base);
-  const baseFileName = path.basename(
-    path.parse(file.name).base,
-    path.extname(file.name)
-  );
-  const tempLocalFilenameNoExt = path.join(os.tmpdir(), baseFileName);
-  const baseFileExtension = path.extname(file.name);
-
-  // Download file from bucket.
-  console.info(`Trying to download ${tempLocalFilename}`);
-  return file
-    .download({ destination: tempLocalFilename })
-    .catch(err => {
-      console.error("Failed to download file.", err);
-      return Promise.reject(err);
-    })
-    .then(() => {
-      console.log(
-        `Image ${
-          path.parse(file.name).base
-        } has been downloaded to ${os.tmpdir()}.`
-      );
+  // const tempLocalFilename = path.join(os.tmpdir(), path.parse(file.name).base);
+  // const baseFileName = path.basename(
+  //   path.parse(file.name).base,
+  //   path.extname(file.name)
+  // );
+  // const tempLocalFilenameNoExt = path.join(os.tmpdir(), baseFileName);
+  // const baseFileExtension = path.extname(file.name);
 
       // Slice the image using ImageMagick.
-      return new Promise((resolve, reject) => {
-        exec(
-          `convert ${tempLocalFilename} -crop ${amountOfTiles}x${amountOfTiles}@ +repage  +adjoin ${tempLocalFilenameNoExt}_%d${baseFileExtension}`,
-          { stdio: "ignore" },
-          (err, stdout) => {
-            if (err) {
-              console.error("Failed to slice image.", err);
-              reject(err);
-            } else {
-              resolve(stdout);
-            }
-          }
-        );
-      });
-    })
+  return new Promise((resolve, reject) => {
+    exec(
+      `convert ${file} -crop ${gridSize}x${gridSize}@ +repage  +adjoin ${tempLocalFilenameNoExt}_%d${baseFileExtension}`,
+      { stdio: "ignore" },
+      (err, stdout) => {
+        if (err) {
+          console.error("Failed to slice image.", err);
+          reject(err);
+        } else {
+          resolve(stdout);
+        }
+      }
+    )
+      // }
+    // );
+    // })
     .then(() => {
-      for (let index = 0; index < Math.pow(amountOfTiles, 2); index++) {
+      for (let index = 0; index < Math.pow(gridSize, 2); index++) {
         // const element = array[index];
 
         console.log(
@@ -85,13 +71,10 @@ exports.slice = (file, amountOfTiles) => {
       });
     })
     .then(() => {
-      for (let index = 0; index < Math.pow(amountOfTiles, 2); index++) {
+      for (let index = 0; index < Math.pow(gridSize, 2); index++) {
         console.log(
           `Sliced image has been uploaded to tiles/${baseFileName}_${index}${baseFileExtension}.`
         );
-
-        // Delete the temporary file.
-        // return new Promise((resolve, reject) => {
         console.log(
           `Deleting file ${tempLocalFilenameNoExt}_${index}${baseFileExtension}.`
         );
@@ -104,7 +87,11 @@ exports.slice = (file, amountOfTiles) => {
           }
         );
       }
-      return Promise.resolve;
+      return resolve();
       // );
+    })
+    .catch(err => {
+      reject(err);
     });
+  })
 }

@@ -44,7 +44,8 @@ exports.processImage = functions.storage.object().onChange(event => {
     },
     assets: {
       tiles: [],
-      audioHints: []
+      audioHints: [],
+      imageLabels: []
     },
     gameSolution: [],
     completeImage: {
@@ -61,8 +62,11 @@ exports.processImage = functions.storage.object().onChange(event => {
       return Promise.reject(err);
     })
     .then(() => {return vision.labelDetection(tempFile)})
-  // console.log(`Slicing ${bucketFile.name}.`);
-    .then(() => {return imagemagick.slice(bucketFile, 4)})
+    .then((labels) => {
+      newGame.assets.audioHints = labels
+      return resolve()
+    })
+    .then(() => {return imagemagick.slice(tempFile, newGame.grid.noOfColumns)})
     .then(() => {
       console.log(`node to be inserted in the firebase ${JSON.stringify(newGame)}`);
       
@@ -75,7 +79,6 @@ exports.processImage = functions.storage.object().onChange(event => {
       }
       
       return firebase.insert(newGame);
-      // .resolve()
     })
     .catch(err => {
       console.error("Something went wrong: ", err);
