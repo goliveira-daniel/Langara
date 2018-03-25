@@ -5,6 +5,9 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const storage = require('@google-cloud/storage')();
+// const functions = require('firebase-functions');
+// const admin = require('firebase-admin');
+// admin.initializeApp(functions.config().firebase);
 
 /**
  * Triggered from a message on a Cloud Storage bucket.
@@ -27,13 +30,13 @@ exports.processImage = (event, callback) => {
 
   // Exit if this is triggered on a file that is not on images folder.
   if (path.parse(object.name).dir == 'tiles') {
-    console.warn('This is not on images folder.');
-    return null;
+    console.log('This is not on images folder.');
+    return;
   }
   
   const file = storage.bucket(object.bucket).file(object.name);
 
-  console.log(`CHECK THIS OUT: ${JSON.stringify(object.name)}.`);
+  console.log(`CHECK THIS OUT: ${JSON.stringify(object)}.`);
   console.log(`Slicing ${file.name}.`);
   return sliceImage(file, 4);
 
@@ -99,17 +102,43 @@ function sliceImage (file, amountOfTiles) {
       return Promise.resolve
     })
     .then(() => {
-      console.log(`Sliced image has been uploaded to tiles/${baseFileName}_1${baseFileExtension}.`);
+        console.log(`Deleting file ${tempLocalFilename}.`);
 
-      // Delete the temporary file.
-      return new Promise((resolve, reject) => {
-        fs.unlink(tempLocalFilename, (err) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve();
-          }
+        // Delete the temporary file.
+        return new Promise((resolve, reject) => {
+          fs.unlink(tempLocalFilename, (err) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve();
+            }
+          });
         });
-      });
+    })
+    .then(() => {
+      for (let index = 0; index < Math.pow(amountOfTiles,2); index++) {
+        console.log(`Sliced image has been uploaded to tiles/${baseFileName}_${index}${baseFileExtension}.`);
+        
+        // Delete the temporary file.
+        return new Promise((resolve, reject) => {
+          console.log(`Deleting file ${tempLocalFilenameNoExt}_${index}${baseFileExtension}.`);
+          fs.unlink(`${tempLocalFilenameNoExt}_${index}${baseFileExtension}`, (err) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve();
+            }
+          });
+        });
+      }
     });
+}
+
+function updateFirebase(params) {
+  let node = {}
+  node.gameId = params.generation
+  node.grid.noOfColumns = 4
+  node.grid.noOfLines = 4
+  node.completeImage.bucketName = params.bucket
+  node.completeImage.fileName = params.name
 }
