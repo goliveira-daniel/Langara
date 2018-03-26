@@ -1,16 +1,15 @@
 "use strict";
 
 const functions = require("firebase-functions");
-const admin = require("firebase-admin");
-admin.initializeApp(functions.config().firebase);
+// const admin = require("firebase-admin");
+// admin.initializeApp(functions.config().firebase);
 const storage = require("@google-cloud/storage")();
-// const exec = require("child_process").exec;
 const path = require("path");
 const fs = require("fs");
 const os = require("os");
-const vision = require("./vision.js")
-const imagemagick = require('./imagemagick.js')
-const firebase = require("./firebase.js")
+const vision = require("./vision.js");
+const imagemagick = require("./imagemagick.js");
+const firebase = require("./firebase.js");
 
 /**
  * Triggered from a message on a Cloud Storage bucket.
@@ -36,6 +35,7 @@ exports.processImage = functions.storage.object().onChange(event => {
 
   const bucketFile = storage.bucket(object.bucket).file(object.name);
   const tempFile = path.join(os.tmpdir(), path.parse(bucketFile.name).base);
+  let filesForDeletion = [];
   const newGame = {
     gameId: object.generation || Math.floor(Math.random() * 10000000 + 1),
     grid: {
@@ -55,34 +55,61 @@ exports.processImage = functions.storage.object().onChange(event => {
     }
   };
 
-  bucketFile
+  return bucketFile
     .download({ destination: tempFile })
     .catch(err => {
       console.error("Failed to download file.", err);
       return Promise.reject(err);
     })
-    .then(() => {return vision.labelDetection(tempFile)})
-    .then((labels) => {
-      newGame.assets.audioHints = labels
-      return resolve()
-    })
-    .then(() => {return imagemagick.slice(tempFile, newGame.grid.noOfColumns)})
     .then(() => {
-      console.log(`node to be inserted in the firebase ${JSON.stringify(newGame)}`);
-      
+      // filesForDeletion.push(tempFile);
+      return vision.labelDetection(tempFile);
+    })
+    // .then(labels => {
+    //   return Promise.resolve(newGame.assets.audioHints = labels);
+    // })
+    .then(() => {
+      // console.log(`Does it ever get here?`)
+      return imagemagick.slice(tempFile, newGame.grid.noOfColumns);
+    })
+    .then(outputFiles => {
+      return Promise.all(
+        outputFiles.map(tile => {
+          console.log(`Uploading file ${tile} to bucket`)
+          filesForDeletion.push(tile)
+          return bucketFile.bucket.upload(tile, `{destination: tiles/${path.parse(tile).base}}`);
+        })
+      )
+      // return Promise.resolve()
+    })
+    .then(() => {
+      console.log(
+        `node to be inserted in the firebase ${JSON.stringify(newGame)}`
+      );
       for (let index = 0; index < Math.pow(4, 2); index++) {
         newGame.assets.tiles.push(
-          JSON.parse(`{"bucketName": "tiles/${path.parse(bucketFile.name).name}_${index}${path.extname(bucketFile.name)}",
+          JSON.parse(`{"bucketName": "tiles/${
+            path.parse(bucketFile.name).name
+          }_${index}${path.extname(bucketFile.name)}",
           "fileName": "${object.bucket}"}`)
         );
-        newGame.gameSolution.push(`${path.parse(bucketFile.name).name}_${index}${path.extname(bucketFile.name)}`)
+        newGame.gameSolution.push(
+          `${path.parse(bucketFile.name).name}_${index}${path.extname(
+            bucketFile.name
+          )}`
+        );
       }
-      
       return firebase.insert(newGame);
+    })
+    .then(() =>{
+      return Promise.all(filesForDeletion.map(file => {
+        return fs.unlink(file)
+      }))
     })
     .catch(err => {
       console.error("Something went wrong: ", err);
+      // throw err
       return Promise.reject(err);
-    })
+    });
   //  callback();
 });

@@ -1,5 +1,6 @@
 "use strict";
 
+const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
 
@@ -9,6 +10,7 @@ admin.initializeApp(functions.config().firebase);
  * @param {!obj} JSON object to be inserted in the database.
  */
 exports.insert = obj => {
+    console.log(`Function Insert started with arguments ${arguments}`)
 // function addToFirebase(obj) {
     return admin
         .database()

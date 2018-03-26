@@ -8,16 +8,21 @@ const vision = require("@google-cloud/vision");
  * @param {!file} string path to image to detect labels.
  */
 exports.labelDetection = file => {
+    console.log(`Function Vision started with arguments ${file}`)
+    let labels = [];
     const client = new vision.ImageAnnotatorClient();
-    client.labelDetection(file)
-    .then(results => {
-        const labels = results[0].labelAnnotations;
-        console.log("Labels:");
-        labels.forEach(label => console.log(label.description));
-        return labels;
+    return new Promise((resolve, reject)  => {
+        client.labelDetection(file)
+        .then(results => {
+            labels = results[0].labelAnnotations;
+            // console.log("Labels:");
+            // labels.forEach(label => console.log(label.description));
+            return resolve(labels);
+        })
+        .catch(err => {
+            console.error("ERROR:", err);
+            throw(err)
+        });
     })
-    .catch(err => {
-        console.error("ERROR:", err);
-        reject()
-    });
+    // return labels
 }
