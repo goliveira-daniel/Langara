@@ -62,43 +62,29 @@ exports.processImage = functions.storage.object().onChange(event => {
       return Promise.reject(err);
     })
     .then(() => {
-      // filesForDeletion.push(tempFile);
+      filesForDeletion.push(tempFile);
       return vision.labelDetection(tempFile);
     })
-    // .then(labels => {
-    //   return Promise.resolve(newGame.assets.audioHints = labels);
-    // })
+    .then(labels => {
+      return Promise.resolve(newGame.assets.audioHints = labels);
+    })
     .then(() => {
-      // console.log(`Does it ever get here?`)
       return imagemagick.slice(tempFile, newGame.grid.noOfColumns);
     })
     .then(outputFiles => {
       return Promise.all(
         outputFiles.map(tile => {
           console.log(`Uploading file ${tile} to bucket`)
+          let i = 0
           filesForDeletion.push(tile)
-          return bucketFile.bucket.upload(tile, `{destination: tiles/${path.parse(tile).base}}`);
+          newGame.gameSolution.push(path.parse(tile).base)
+          i = newGame.assets.tiles.push(JSON.parse(`{"bucketName": "${object.bucket}", "fileName": "tiles/${path.parse(tile).base}"}`))
+          return bucketFile.bucket.upload(tile, { destination: newGame.assets.tiles[i-1].fileName });
         })
       )
-      // return Promise.resolve()
     })
     .then(() => {
-      console.log(
-        `node to be inserted in the firebase ${JSON.stringify(newGame)}`
-      );
-      for (let index = 0; index < Math.pow(4, 2); index++) {
-        newGame.assets.tiles.push(
-          JSON.parse(`{"bucketName": "tiles/${
-            path.parse(bucketFile.name).name
-          }_${index}${path.extname(bucketFile.name)}",
-          "fileName": "${object.bucket}"}`)
-        );
-        newGame.gameSolution.push(
-          `${path.parse(bucketFile.name).name}_${index}${path.extname(
-            bucketFile.name
-          )}`
-        );
-      }
+      console.log(`node to be inserted in the firebase ${JSON.stringify(newGame)}`);
       return firebase.insert(newGame);
     })
     .then(() =>{

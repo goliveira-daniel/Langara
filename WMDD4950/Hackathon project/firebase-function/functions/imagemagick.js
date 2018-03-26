@@ -25,13 +25,11 @@ exports.slice = (file, gridSize) => {
       }
     )
   })
-    .then(() => {
+    .then((stdout) => {
+      console.log(stdout.toString())
       for (let index = 0; index < Math.pow(gridSize, 2); index++) {
         outputFiles.push(`${path.parse(file).dir}/${path.parse(file).name}_${index}${path.parse(file).ext}`)
-        // console.log(
-          //   `Uploading tiles ${tempLocalFilenameNoExt}_${index}${baseFileExtension}`
-          // );
-        }
+      }
         return Promise.resolve(outputFiles)
       })
       .catch(err => {

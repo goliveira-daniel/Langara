@@ -21,6 +21,6 @@ exports.insert = obj => {
             return Promise.resolve();
         })
         .catch(err => {
-            reject(err);
+            throw(err);
         });
 }

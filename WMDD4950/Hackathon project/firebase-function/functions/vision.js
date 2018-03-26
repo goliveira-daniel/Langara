@@ -14,6 +14,7 @@ exports.labelDetection = file => {
     return new Promise((resolve, reject)  => {
         client.labelDetection(file)
         .then(results => {
+            console.log(results)
             labels = results[0].labelAnnotations;
             // console.log("Labels:");
             // labels.forEach(label => console.log(label.description));
@@ -24,5 +25,4 @@ exports.labelDetection = file => {
             throw(err)
         });
     })
-    // return labels
 }
