@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "138038675888",
+    "firebase_url": "https://slidingpuzzleranking.firebaseio.com",
+    "project_id": "slidingpuzzleranking",
+    "storage_bucket": "slidingpuzzleranking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138038675888:android:0858fb7a004ee4c8",
+        "android_client_info": {
+          "package_name": "com.wmdd4940.ricardo.slidingpuzzle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138038675888-3cun2u9ungql0m0cspasv34e62rt52m4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wmdd4940.ricardo.slidingpuzzle",
+            "certificate_hash": "d46b00bd62e2c43bc6bb2288ba9cb301b08e7374"
+          }
+        },
+        {
+          "client_id": "138038675888-6ba0tpokk7iec5br5bp33d6hap7so1dt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc95RYFB9rpEIV31FhybXK9CNk-fVBPt0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138038675888-6ba0tpokk7iec5br5bp33d6hap7so1dt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

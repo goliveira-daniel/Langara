@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SlidingPuzzle</string>
+    <string name="btnSolve">Solve</string>
+    <string name="btnStart">Start Game</string>
+    <string name="permission_message">This app needs to record audio and recognize your speech.</string>
+    <string name="listening">Listening…</string>
+</resources>
