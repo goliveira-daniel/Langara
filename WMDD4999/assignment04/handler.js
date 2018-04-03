@@ -4,7 +4,7 @@ const TWILIO_PHONE_FROM = process.env.TWILIO_PHONE_FROM
 const TWILIO_PHONE_TO = process.env.TWILIO_PHONE_TO
 const request = require('request-promise-native')
 
-exports.handler = (event, context, callback) => {
+module.exports.sendSms = (event, context, callback) => {
     request.post({
         url: `https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json`,
         json: true,
