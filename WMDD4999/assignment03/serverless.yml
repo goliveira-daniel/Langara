@@ -23,3 +23,19 @@ functions:
           event: s3:ObjectCreated:*
           rules:
             - suffix: .png
+
+# resources:  // CloudFormation template syntax
+Resources: 
+  wmdd4999-assignment03:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: wmdd4999-assignment03
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

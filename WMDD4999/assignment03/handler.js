@@ -12,7 +12,7 @@ module.exports.postprocess = (event, context, callback) => {
       "Item" : {
         "FileName": {"S": record.s3.object.key},
         "EventTime": {"S": record.eventTime},
-        "id": {"S": record.s3.object.sequencer}
+        "id": record.s3.object.sequencer
       }
     }, (error) => {
       // handle potential errors
