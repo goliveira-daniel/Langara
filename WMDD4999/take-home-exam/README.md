@@ -31,3 +31,29 @@ You will code the following microservices (remember that these are functions):
 For the purposes of this assignment I recommend making several small txt files to stand in for your MP3s/OGG(other audio files)
 
 As in the previous project you can add a few files to your S3 bucket using the AWS web console for testing purposes
+
+A- [Here's the link for my project.](https://github.com/goliveira-daniel/Langara/tree/master/WMDD4999/take-home-exam/small-project)
+
+### Testing instructions
+
+#### Add files uploaded to S3
+
+```serverless invoke -f scan -p <path to test.json file>```
+
+#### List all songs
+
+Replace XXXXXXXX with your endpoint
+
+```curl https://XXXXXXXX.execute-api.us-east-1.amazonaws.com/dev/functions/```
+
+#### Search for a song
+
+Replace XXXXXXXX with your endpoint
+
+```curl https://XXXXXXXX.execute-api.us-east-1.amazonaws.com/dev/functions/<CaseSensitiveQueryString>```
+
+#### Create a playlist
+
+Replace XXXXXXXX with your endpoint
+
+```curl -X POST https://XXXXXXXX.execute-api.us-east-1.amazonaws.com/dev/functions/ --data '{ "name": "Learn Serverless", "songs": ["<ID of your songs - it will be validaded>"] }'```
