@@ -1,0 +1,82 @@
+service: wmdd4999-smallProject
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment:
+    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+
+custom:
+  bucket: wmdd4999-smallProject
+
+functions:
+  scan:
+    handler: functions/scan.scan
+    description: Adds audio files data created on S3 to dynamodb table
+    events:
+      - s3:
+          bucket: ${self:service}
+          event: s3:ObjectCreated:*
+          rules:
+            - suffix: 
+              - .png
+              - .mp3
+              - .ogg
+              - .wma
+              - .flac
+  
+  get:
+    handler: functions/get.get
+    description: Search for a song
+    events:
+      - http:
+        path: functions/{id}
+        method: get
+        cors: true
+
+  list:
+    handler: functions/list.list
+    description: Lists all songs
+    events:
+      - http:
+        path: functions
+        method: get
+        cors: true
+        
+  create:
+    handler: functions/create.create
+    description: Creates a new playlist
+    events:
+      - http:
+          path: functions
+          method: post
+          cors: true
+
+resources:
+  Resources:
+    AudioDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
