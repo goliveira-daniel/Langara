@@ -1,4 +1,4 @@
-service: wmdd4999-smallProject
+service: wmdd4999-smallproject
 
 provider:
   name: aws
@@ -32,12 +32,7 @@ functions:
           bucket: ${self:service}
           event: s3:ObjectCreated:*
           rules:
-            - suffix: 
-              - .png
-              - .mp3
-              - .ogg
-              - .wma
-              - .flac
+            - suffix: .mp3
   
   get:
     handler: functions/get.get
