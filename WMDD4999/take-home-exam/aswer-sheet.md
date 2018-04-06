@@ -11,11 +11,13 @@ A - [Arc](https://arc.codes/) is a framework that views infrastructure as a buil
 
 The manifest file has its own syntax to describe functions and resources. Once you're done describing what you'll use in your project, you run a ```NPM RUN CREATE``` to create your structure locally and deploy it to AWS. Subsequent changes on your assets are deployed with ```NPM RUN DEPLOY```.
 
-[Up](https://up.docs.apex.sh/) seems to be a very light framework to manage serverless architecture. It supports Node.js, Golang, Python, Java, Crystal, and static sites out of the box. Up says to be platform-agnostic, but as the writing of this document, it only supports AWS Lambda and API Gateway as the first targets. Up also has a paid Pro version that extends functionalities of its vanilla version. 
+[Up](https://up.docs.apex.sh/) seems to be a very light framework to manage serverless architecture. It supports Node.js, Golang, Python, Java, Crystal, and static sites out of the box. Up says to be platform-agnostic, but as the writing of this document, it only supports AWS Lambda and API Gateway as the first targets. Up also has a paid Pro version that extends functionalities of its vanilla version.
 
 The main advantage of Up against its competitors is that it's not function-oriented, but rather creates regular HTTP servers for every function that you create. It does that to keep the apps and APIs portable, make local testing easier, and prevent vendor lock-in.
 
-##Small project
+Small project
+----------
+
 Using what you have learned this term about serverless/microservices, the Serverless framework, and the AWS tools used in class (Lambda, S3, DynamoDB) you are going to create part of the backend for a streaming music app, similar to Spotify.
 
 You will code the following microservices (remember that these are functions):
