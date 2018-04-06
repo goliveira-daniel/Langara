@@ -4,7 +4,8 @@ provider:
   name: aws
   runtime: nodejs6.10
   environment:
-    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+    AUDIO_DYNAMODB_TABLE: audio-${self:service}-${opt:stage, self:provider.stage}
+    PLAYLIST_DYNAMODB_TABLE: playlist-${self:service}-${opt:stage, self:provider.stage}
     S3_BUCKET: ${self:service}-${opt:stage, self:provider.stage}
   iamRoleStatements:
     - Effect: Allow
@@ -15,7 +16,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.AUDIO_DYNAMODB_TABLE}"
 
 # custom:
 #   bucket: wmdd4999-smallProject
@@ -24,6 +25,8 @@ functions:
   scan:
     handler: functions/scan.scan
     description: Adds audio files data created on S3 to dynamodb table
+    environment: 
+      AUDIO_DYNAMODB_TABLE: ${self:provider.environment.AUDIO_DYNAMODB_TABLE}
     events:
       - s3:
           bucket: ${self:service}
@@ -39,24 +42,31 @@ functions:
   get:
     handler: functions/get.get
     description: Search for a song
+    environment: 
+      AUDIO_DYNAMODB_TABLE: ${self:provider.environment.AUDIO_DYNAMODB_TABLE}
     events:
       - http:
-        path: functions/{id}
-        method: get
-        cors: true
+          path: functions/{id}
+          method: get
+          cors: true
 
   list:
     handler: functions/list.list
     description: Lists all songs
+    environment: 
+      AUDIO_DYNAMODB_TABLE: ${self:provider.environment.AUDIO_DYNAMODB_TABLE}
     events:
       - http:
-        path: functions
-        method: get
-        cors: true
+          path: functions
+          method: get
+          cors: true
         
   create:
     handler: functions/create.create
     description: Creates a new playlist
+    environment: 
+      PLAYLIST_DYNAMODB_TABLE: ${self:provider.environment.PLAYLIST_DYNAMODB_TABLE}
+      AUDIO_DYNAMODB_TABLE: ${self:provider.environment.AUDIO_DYNAMODB_TABLE}
     events:
       - http:
           path: functions
@@ -80,7 +90,24 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+        TableName: ${self:provider.environment.AUDIO_DYNAMODB_TABLE}
+
+    PlaylistDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.PLAYLIST_DYNAMODB_TABLE}
         
     AudioS3Bucket:
       Type: AWS::S3::Bucket
