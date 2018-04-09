@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+	<title>Greeny</title>
+</head>
+<body>
+	<section id="main">
+		<div class="header">
+			<div id="awards">
+				<span class="icon-star"></span>
+				<p>Awards</p>
+			</div>
+			<h1>Dashboard</h1>
+			<a href="settings.html" class="nav">
+				<div id="settings">
+					<span class="icon-settings"></span>
+					<p>Settings</p>
+				</div>
+			</a>
+		</div>
+		<div class="wrapper">
+			<div class="levelsPlant">
+				<div class="heartL">
+					<p>Bloom</p>
+					<span class="icon-heart"></span>
+					<div class="levels">
+						<span class="level1"></span>
+						<span class="level2"></span>
+						<span class="level3"></span>
+						<span class="level4"></span>
+						<span class="level5"></span>
+					</div>
+				</div>
+				<div class="dropL">
+					<p>Moisture</p>
+					<span class="icon-drop"></span>
+					<div class="levels">
+						<span id="d1" class="level1"></span>
+						<span id="d2" class="level2"></span>
+						<span id="d3" class="level3"></span>
+						<span id="d4" class="level4"></span>
+						<span id="d5" class="level5"></span>
+					</div>
+				</div>
+				<div class="sunL">
+					<p>Climate</p>
+					<span class="icon-sun"></span>
+					<div class="levels">
+						<span id="s1" class="level1"></span>
+						<span id="s2" class="level2"></span>
+						<span id="s3" class="level3"></span>
+						<span id="s4" class="level4"></span>
+						<span id="s5" class="level5"></span>
+					</div>
+				</div>
+			</div>
+			<div class="notifications">
+				<div id="heartN">
+					<p>4 days</p>
+				</div>
+				<div id="dropN">
+					<p>2:00pm</p>
+					<div><span class="icon-drops"></span></div>
+				</div>
+				<div id="sunN">
+					<p>3:00pm</p>
+					<div><span class="icon-sun"></span></div>
+				</div>
+			</div>
+			<div class="character">
+				<span class="greenyMe_thirst"></span>
+			</div>
+			<!-- <div class="temp">
+				<div class="icons_bar">
+					<span class="icon-sun"></span>
+					<span class="icon-cold"></span>
+				</div>
+				<div class="measure">
+					<span class="icon-greeny"></span>
+					<span class="stick"></span>
+				</div>
+				<div class="bar"></div>
+			</div> -->
+		</div>
+	</section>
+	<section id="not1" class="hidden notifications_screen">
+		<div class="header">
+			<a class="nav" onclick="changeState()">
+				<div id="awards">
+					<span class="icon-home"></span>
+					<p>Home</p>
+				</div>
+			</a>
+			<h1>Notifications</h1>
+			<a href="settings.html" class="nav">
+				<div id="settings">
+					<span class="icon-settings"></span>
+					<p>Settings</p>
+				</div>
+			</a>
+		</div>
+		<div class="notify">
+			<div class="iconN">
+				<span class="icon-drop"></span>
+			</div>
+			<div class="wrapper">
+				<h2>I am thirsty!</h2>
+				<div class="character">
+					<span class="greenyMe_thirstyN"></span>
+				</div>
+				<p>It is time to water your plant. <br>Fill the cup up and poor all the content in your plant.</p>
+			</div>
+		</div>
+	</section>
+	<section id="not2" class="hidden notifications_screen">
+		<div class="header">
+			<a class="nav" onclick="changeState()">
+				<div id="awards">
+					<span class="icon-home"></span>
+					<p>Home</p>
+				</div>
+			</a>
+			<h1>Notifications</h1>
+			<a href="settings.html" class="nav">
+				<div id="settings">
+					<span class="icon-settings"></span>
+					<p>Settings</p>
+				</div>
+			</a>
+		</div>
+		<div class="notify">
+			<div class="iconN">
+				<span class="icon-star"></span>
+			</div>
+			<div class="wrapper">
+				<h2>Congratulations!!!</h2>
+				<div class="stars">
+					<span class="icon-star"></span>
+					<span class="icon-star"></span>
+					<span class="icon-star"></span>
+				</div>
+				<div class="character">
+					<span class="greenyMe_congratulations"></span>
+				</div>
+				<p>You got 3 stars for all your dedication with your plant. Keep up with the good work!</p>
+			</div>
+		</div>
+	</section>
+</body>
+<script src="app.js"></script>
+</html>

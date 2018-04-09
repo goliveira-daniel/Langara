@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css?family=Chewy');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300');
+
+body {
+	height: 100vh;
+	margin: 0 auto;
+	background: #F3F3E9;
+	position: relative;
+	overflow: hidden;
+}
+h1, h2, h3 {
+	margin: 0;
+	font-family: 'Chewy', cursive;
+	font-size: 3em;
+}
+
+a .nav{
+	text-decoration: none;
+	
+}
+
+p {
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-size: 2.3em;
+	padding: .5em;	
+	margin: 0;
+}
+a 
+.header {
+	background: #13AC6E;
+	color: #F3F3E9;
+	padding: 2em 1em 1em;
+	text-transform: uppercase;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+}
+
+.header > span {
+	font-size: 5em;
+	color: #c8d840;
+}
+
+.header > span:last-child {
+	text-align: right;
+}
+
+.header > h1 {
+	text-align: center;
+	letter-spacing: .1em;
+}
+
+.levelsPlant {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	border-bottom: 1px solid rgba(159, 138, 113, .2);
+}
+
+.heartL,
+.dropL {
+	border-right: 1px solid rgba(159, 138, 113, .2);
+}
+
+.heartL, 
+.dropL, 
+.sunL {
+	background: #ffffff;
+	padding: 2em 4em;
+}
+
+.levels {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+}
+
+.level1,
+.level2,
+.level3,
+.level4,
+.level5 {
+	border-radius: 20px;
+	border: 2px solid #c8d840;
+	width: 20px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.heartL .level1 {
+	background: #c8d840;
+}
+
+.colour {
+	background: #c8d840;
+}
+
+.heartL > span,
+.dropL > span,
+.sunL > span {
+	display: grid;
+	justify-content: center;
+	margin-bottom: .5em;
+}
+
+.heartL > span,
+.dropL > span,
+.sunL > span {
+	font-size: 7em;
+}
+
+.notifications {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	text-align: center;
+}
+
+#heartN p, 
+#dropN p, 
+#sunN p {
+	background: linear-gradient(to right, #c8d840, #13ac6e 25%);
+	color: #ffffff;
+}
+
+#dropN span, 
+#sunN span {
+	font-size: 20em;
+}
+
+
+#dropN > div {
+	animation: bounce 1s infinite alternate;
+	-webkit-animation: bounce 1s infinite alternate;
+}
+
+#sunN span {
+	animation: shine 1s infinite alternate;
+	-webkit-animation: shine 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+
+@keyframes shine {
+  from {
+    font-size: 15em;
+  }
+  to {
+    font-size: 20em;
+  }
+}
+
+.character {
+    display: grid;
+    height: 100vw;
+}
+
+.greenyMe_thirst {
+    width: 526.5px;
+    height: 900px;
+    align-self: center;
+    justify-self: center;
+    background: url(../imgs/Greeny_thirst_sprites.png) left center;
+    animation: play 0.8s steps(3) infinite;
+}
+
+@keyframes play {
+    100% { background-position: -1579.5px; }
+}
+
+.temp {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}
+
+.icons_bar > span {
+	font-size: 2em;
+}
+
+.measure {
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+}
+
+.stick {
+	position: absolute;
+	bottom: -5px;
+	left:0;
+	width: 10px;
+	height: 25px;
+	border-radius: 10px;
+	border: 1px solid #c8d840;
+	background: #c8d840;
+	z-index: 2;
+}
+
+.measure > .icon-greeny {
+	position: absolute;
+	bottom: 25px;
+	left: -5px;
+	font-size: 1.5em;
+    color: #f3f3e9;
+    background: #c8d840;
+    border-radius: 100%;
+}
+
+.bar {
+	position: relative;
+	z-index: -1;
+	background: linear-gradient(to right, #13aca4, #ddd840);
+	height: 10px;
+}
+
+.icons_bar {
+    position: relative;
+    bottom: 0px;
+}
+
+.icons_bar > .icon-sun {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.icon-sun:before,
+.icon-drop:before,
+.icon-heart:before,
+.icon-drops:before,
+.icon-cold:before {
+	background: -webkit-gradient(linear, left top, left bottom, from(#c8d840), to(#13ac6e));
+  				-webkit-background-clip: text;
+  				-webkit-text-fill-color: transparent;
+  	display: initial;
+}
+
+.hidden {
+	visibility: hidden;
+}
+.display {
+	visibility: visible;
+}
+
+/*=======================ICONS=======================*/
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?4jmube');
+  src:  url('../fonts/icomoon.eot?4jmube#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4jmube') format('truetype'),
+    url('../fonts/icomoon.woff?4jmube') format('woff'),
+    url('../fonts/icomoon.svg?4jmube#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow_down:before {
+  content: "\e900";
+}
+.icon-arrow_right:before {
+  content: "\e901";
+}
+.icon-camera:before {
+  content: "\e902";
+}
+.icon-checked:before {
+  content: "\e903";
+}
+.icon-close:before {
+  content: "\e904";
+}
+.icon-closed:before {
+  content: "\e905";
+}
+.icon-cold:before {
+  content: "\e906";
+}
+.icon-drop:before {
+  content: "\e907";
+}
+.icon-drops:before {
+  content: "\e908";
+}
+.icon-exit:before {
+  content: "\e909";
+}
+.icon-facebook:before {
+  content: "\e90a";
+}
+.icon-flag:before {
+  content: "\e90b";
+}
+.icon-greeny:before {
+  content: "\e90c";
+}
+.icon-heart:before {
+  content: "\e90d";
+}
+.icon-home:before {
+  content: "\e90e";
+}
+.icon-notifications:before {
+  content: "\e90f";
+}
+.icon-plus:before {
+  content: "\e910";
+}
+.icon-profile:before {
+  content: "\e911";
+}
+.icon-return:before {
+  content: "\e912";
+}
+.icon-settings:before {
+  content: "\e913";
+}
+.icon-star:before {
+  content: "\e914";
+}
+.icon-sun:before {
+  content: "\e915";
+}
+.icon-twitter:before {
+  content: "\e916";
+}
+

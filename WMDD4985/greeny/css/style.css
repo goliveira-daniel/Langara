@@ -1,0 +1,607 @@
+@import url('https://fonts.googleapis.com/css?family=Chewy');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300');
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+body, section {
+	height: 100vh;
+	margin: 0 auto;
+	background: #F3F3E9;
+	overflow: hidden;
+}
+
+.nav{
+	text-decoration: none;	
+}
+
+#not1{
+	position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#not2{
+	position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	font-family: 'Chewy', cursive;
+	font-size: 4em;
+}
+
+p {
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-size: 2.3em;
+	padding: .5em;	
+	margin: 0;
+}
+
+.header {
+	background: #13AC6E;;
+	color: #F3F3E9;
+	padding: 2em 1em 1em;
+	text-transform: uppercase;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header span {
+	font-size: 5em;
+	color: #c8d840;
+}
+
+.header p {
+	font-size: 1.5em;
+	color: #c8d840;
+    padding: 0;
+    margin-bottom: .5em;
+}
+
+.header span:last-child {
+	text-align: right;
+}
+
+.header > h1 {
+	text-align: center;
+	letter-spacing: .1em;
+}
+
+#awards,
+#settings {
+	text-align: center;
+}
+
+.icon-settings {
+	text-align: right;
+}
+
+.levelsPlant {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 1px solid rgba(159, 138, 113, .2);
+}
+
+.heartL,
+.dropL {
+	border-right: 1px solid rgba(159, 138, 113, .2);
+}
+
+.heartL, 
+.dropL, 
+.sunL {
+	background: #ffffff;
+	flex-basis: 33%;
+	flex-grow: 1;
+}
+
+.heartL p,
+.dropL p,
+.sunL p {
+	text-align: center;
+	color: #13AC6E;
+	background: #c8d840;
+}
+
+.levels {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-around;
+	-ms-align-items: center;
+	align-items: center;
+	margin: 1em auto 2em;
+	width: 50%;
+}
+
+.level1,
+.level2,
+.level3,
+.level4,
+.level5 {
+	border-radius: 20px;
+	border: 2px solid #c8d840;
+	height: 50px;
+	flex-basis: 15%;
+	align-self: center;
+}
+
+.heartL .level1 {
+	background: #c8d840;
+}
+
+.colour {
+	background: #c8d840;
+}
+
+
+.heartL > span,
+.dropL > span,
+.sunL > span {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+
+.heartL > span,
+.dropL > span,
+.sunL > span {
+	font-size: 7em;
+	text-align: center;
+}
+
+.notifications {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	text-align: center;
+	justify-content: space-between;
+	text-align: center;
+}
+
+#heartN,
+#dropN,
+#sunN {
+  flex-basis: 33%;
+  flex-grow: 1;
+}
+
+#heartN p, 
+#dropN p, 
+#sunN p {
+	background: linear-gradient(to right, #c8d840, #13ac6e 25%);
+	color: #ffffff;
+}
+
+#dropN span, 
+#sunN span {
+	font-size: 20em;
+}
+
+#heartN,
+#sunN {
+	opacity: .3;
+}
+
+#dropN > div {
+	animation: bounce 1s infinite alternate;
+	-webkit-animation: bounce 1s infinite alternate;
+}
+
+#sunN span {
+	animation: shine 1s infinite alternate;
+	-webkit-animation: shine 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+
+@keyframes shine {
+  from {
+    font-size: 15em;
+  }
+  to {
+    font-size: 20em;
+  }
+}
+
+.character {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+}
+
+.greenyMe_thirst {
+    width: 526.5px;
+    height: 900px;
+    align-self: center;
+    justify-self: center;
+    background: url(../imgs/Greeny_thirst_sprites.png) left center;
+    animation: play 0.8s steps(3) infinite;
+}
+
+.greenyMe_congratulations {
+    width: 453px;
+    height: 620px;
+    align-self: center;
+    justify-self: center;
+    background: url(../imgs/Greeny_congratulations_sprites.png) left center;
+    animation: play_happy 1.2s steps(4) infinite;
+}
+
+.greenyMe_thirstyN {
+    width: 453px;
+    height: 620px;
+    align-self: center;
+    justify-self: center;
+    background: url(../imgs/Greeny_thirstN_sprites.png) left center;
+    animation: play_thirsty 1.2s steps(3) infinite;
+}
+
+@keyframes play {
+    100% { background-position: -1579.5px; }
+}
+
+@keyframes play_happy {
+    100% { background-position: -1816px; }
+}
+
+@keyframes play_thirsty {
+    100% { background-position: -1362.3px; }
+}
+
+.temp {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}
+
+.icons_bar > span {
+	font-size: 2em;
+}
+
+.measure {
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+}
+
+.stick {
+	position: absolute;
+	bottom: -5px;
+	left:0;
+	width: 10px;
+	height: 25px;
+	border-radius: 10px;
+	border: 1px solid #c8d840;
+	background: #c8d840;
+	z-index: 2;
+}
+
+.measure > .icon-greeny {
+	position: absolute;
+	bottom: 25px;
+	left: -5px;
+	font-size: 1.5em;
+    color: #f3f3e9;
+    background: #c8d840;
+    border-radius: 100%;
+}
+
+.bar {
+	position: relative;
+	z-index: -1;
+	background: linear-gradient(to right, #13aca4, #ddd840);
+	height: 10px;
+}
+
+.icons_bar {
+    position: relative;
+    bottom: 0px;
+}
+
+.icons_bar > .icon-sun {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.icon-sun:before,
+.icon-drop:before,
+.icon-heart:before,
+.icon-drops:before,
+.icon-cold:before {
+	background: -webkit-gradient(linear, left top, left bottom, from(#c8d840), to(#13ac6e));
+  				-webkit-background-clip: text;
+  				-webkit-text-fill-color: transparent;
+  	display: initial;
+}
+
+.hidden {
+	visibility: hidden;
+}
+.display {
+	visibility: visible;
+}
+
+/*=======================NOTIFICATIONS SCREEN=======================*/
+
+.notifications_screen {
+	background: linear-gradient(25deg, #c8d840, #13ac6e);
+	width: 100vw;
+}
+
+.notifications_screen > .header {
+	background: transparent;
+}
+
+.notify {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+.notify .wrapper {
+	background: #f3f3e9;
+	border-radius: 100px;
+    box-shadow: 0px 30px 0px rgba(159, 138, 113, .6);
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+	width: 80%;
+    margin: -70px;
+}
+
+.notify .wrapper > p {
+	font-size: 2em;
+	text-align: center;
+	color: #13ac6e;
+	padding: 1.5em 1em;
+	text-transform: none;
+}
+
+.notify .wrapper > h2 {
+	text-align: center;
+	color: #13ac6e;
+	font-size: 6em;
+	padding: 1em 0 0;
+}
+
+.notify .iconN {
+    border-radius: 100%;
+    background: #fff;
+    width: 15em;
+    height: 15em;
+    border: 10px solid #13ac6e;
+    box-shadow: 0px 15px 0px rgba(159, 138, 113, .6);
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.notify .iconN > span {
+	font-size: 10em;
+}
+
+.stars {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.stars span:nth-child(odd) {
+	font-size: 7em;
+}
+
+.stars span:nth-child(even) {
+	font-size: 12em;
+}
+
+/*=======================SETTINGS=======================*/
+
+.settings {
+	background: linear-gradient(25deg, #c8d840, #13ac6e);
+	width: 100vw;
+}
+
+.settings > .header {
+	background: transparent;
+}
+
+.settings 
+
+.settingsList ul {
+	list-style-type: none;
+	padding-left: 10em;
+	margin: 10em 0;
+}
+
+.settingsList ul li {
+	line-height: 10em;
+}
+
+.settingsList ul li a {
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	color: #ffffff;
+	font-size: 3em;
+	text-decoration: none;
+}
+
+.settings .logo {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+
+}
+
+/*=======================ICONS=======================*/
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?4jmube');
+  src:  url('../fonts/icomoon.eot?4jmube#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4jmube') format('truetype'),
+    url('../fonts/icomoon.woff?4jmube') format('woff'),
+    url('../fonts/icomoon.svg?4jmube#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow_down:before {
+  content: "\e900";
+}
+.icon-arrow_right:before {
+  content: "\e901";
+}
+.icon-camera:before {
+  content: "\e902";
+}
+.icon-checked:before {
+  content: "\e903";
+}
+.icon-close:before {
+  content: "\e904";
+}
+.icon-closed:before {
+  content: "\e905";
+}
+.icon-cold:before {
+  content: "\e906";
+}
+.icon-drop:before {
+  content: "\e907";
+}
+.icon-drops:before {
+  content: "\e908";
+}
+.icon-exit:before {
+  content: "\e909";
+}
+.icon-facebook:before {
+  content: "\e90a";
+}
+.icon-flag:before {
+  content: "\e90b";
+}
+.icon-greeny:before {
+  content: "\e90c";
+}
+.icon-heart:before {
+  content: "\e90d";
+}
+.icon-home:before {
+  content: "\e90e";
+}
+.icon-notifications:before {
+  content: "\e90f";
+}
+.icon-plus:before {
+  content: "\e910";
+}
+.icon-profile:before {
+  content: "\e911";
+}
+.icon-return:before {
+  content: "\e912";
+}
+.icon-settings:before {
+  content: "\e913";
+}
+.icon-star:before {
+  content: "\e914";
+}
+.icon-sun:before {
+  content: "\e915";
+}
+.icon-twitter:before {
+  content: "\e916";
+}
+
