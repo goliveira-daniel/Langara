@@ -11,6 +11,7 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
@@ -152,7 +153,6 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
         super.onStart();
 
         // Prepare Cloud Speech API
-        bindService(new Intent(this, SpeechService.class), mServiceConnection, BIND_AUTO_CREATE);
 
         // Start listening to voices
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
@@ -164,6 +164,12 @@ public class MainActivity extends AppCompatActivity implements MessageDialogFrag
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO},
                     REQUEST_RECORD_AUDIO_PERMISSION);
+        }
+        try {
+            bindService(new Intent(this, SpeechService.class), mServiceConnection, BIND_AUTO_CREATE);
+        }
+        catch (Exception e) {
+            Log.e("Error", e.toString());
         }
     }
 

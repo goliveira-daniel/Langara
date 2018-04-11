@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\Focused Daniel\Documents\GitHub\Langara\WMDD4950\Hackathon project\slidingpuzzle-master\SlidingPuzzle.iml" filepath="C:\Users\Focused Daniel\Documents\GitHub\Langara\WMDD4950\Hackathon project\slidingpuzzle-master\SlidingPuzzle.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Focused Daniel\Documents\GitHub\Langara\WMDD4950\Hackathon project\slidingpuzzle-master\app\app.iml" filepath="C:\Users\Focused Daniel\Documents\GitHub\Langara\WMDD4950\Hackathon project\slidingpuzzle-master\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/slidingpuzzle-master.iml" filepath="$PROJECT_DIR$/slidingpuzzle-master.iml" />
     </modules>
   </component>
